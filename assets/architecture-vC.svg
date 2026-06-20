@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600">
+<defs>
+<linearGradient id="u" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#4a90d9"/><stop offset="100%" stop-color="#357abd"/></linearGradient>
+<linearGradient id="a" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7c5cff"/><stop offset="100%" stop-color="#5a3de8"/></linearGradient>
+<linearGradient id="m" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#2ecc71"/><stop offset="100%" stop-color="#27ae60"/></linearGradient>
+<linearGradient id="f" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00b894"/><stop offset="100%" stop-color="#009975"/></linearGradient>
+<linearGradient id="s" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#e17055"/><stop offset="100%" stop-color="#d35400"/></linearGradient>
+<linearGradient id="d" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#a29bfe"/><stop offset="100%" stop-color="#6c5ce7"/></linearGradient>
+<linearGradient id="e" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#636e72"/><stop offset="100%" stop-color="#4a5459"/></linearGradient>
+<marker id="ar" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#636e72"/></marker>
+<marker id="ar2" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto"><polygon points="10 0,0 3.5,10 7" fill="#636e72"/></marker>
+<filter id="sh" x="-2%" y="-2%" width="104%" height="104%"><feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.15"/></filter>
+</defs>
+<rect width="900" height="600" fill="#f8f9fa" rx="12"/>
+<text x="450" y="32" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="bold" fill="#2d3436">系統架構總覽</text>
+
+<!-- User -->
+<g transform="translate(380,40)" filter="url(#sh)"><rect width="140" height="60" rx="10" fill="url(#u)"/><text x="70" y="27" text-anchor="middle" font-size="14" font-weight="bold" fill="white">使用者</text><text x="70" y="45" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.8)">Discord / Web / CLI</text></g>
+
+<!-- AI Agent -->
+<g transform="translate(380,130)" filter="url(#sh)"><rect width="140" height="60" rx="10" fill="url(#a)"/><text x="70" y="27" text-anchor="middle" font-size="14" font-weight="bold" fill="white">AI Agent</text><text x="70" y="45" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.8)">Hermes / Claude</text></g>
+<line x1="450" y1="100" x2="450" y2="130" stroke="#636e72" stroke-width="2" marker-end="url(#ar)"/>
+
+<!-- MCP Layer (side by side) -->
+<g transform="translate(120,230)" filter="url(#sh)"><rect width="160" height="60" rx="10" fill="url(#m)"/><text x="80" y="27" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Trading MCP</text><text x="80" y="45" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.8)">trading_mcp_server</text></g>
+<g transform="translate(620,230)" filter="url(#sh)"><rect width="160" height="60" rx="10" fill="url(#m)"/><text x="80" y="27" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Signal MCP</text><text x="80" y="45" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.8)">signal_mcp_server</text></g>
+<line x1="420" y1="160" x2="280" y2="230" stroke="#636e72" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="480" y1="160" x2="680" y2="230" stroke="#636e72" stroke-width="2" marker-end="url(#ar)"/>
+
+<!-- FastAPI Core (center) -->
+<g transform="translate(380,230)" filter="url(#sh)"><rect width="140" height="60" rx="10" fill="url(#f)"/><text x="70" y="27" text-anchor="middle" font-size="13" font-weight="bold" fill="white">FastAPI Core</text><text x="70" y="45" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.8)">main.py / app/</text></g>
+<line x1="280" y1="260" x2="380" y2="260" stroke="#636e72" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="620" y1="260" x2="520" y2="260" stroke="#636e72" stroke-width="2" marker-end="url(#ar)"/>
+
+<!-- Signal Layer -->
+<g transform="translate(380,330)" filter="url(#sh)"><rect width="140" height="60" rx="10" fill="url(#s)"/><text x="70" y="27" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Signal Layer</text><text x="70" y="45" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.8)">scorer/router/calc</text></g>
+<line x1="450" y1="290" x2="450" y2="330" stroke="#636e72" stroke-width="2" marker-end="url(#ar)"/>
+
+<!-- Client modules -->
+<g transform="translate(100,430)" filter="url(#sh)"><rect width="150" height="55" rx="8" fill="url(#e)"/><text x="75" y="25" text-anchor="middle" font-size="11" font-weight="bold" fill="white">coinglass_client.py</text><text x="75" y="42" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.8)">signal_layer/</text></g>
+<g transform="translate(650,430)" filter="url(#sh)"><rect width="150" height="55" rx="8" fill="url(#e)"/><text x="75" y="25" text-anchor="middle" font-size="11" font-weight="bold" fill="white">binance_client.py</text><text x="75" y="42" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.8)">signal_layer/</text></g>
+<line x1="420" y1="360" x2="220" y2="430" stroke="#636e72" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="480" y1="360" x2="720" y2="430" stroke="#636e72" stroke-width="2" marker-end="url(#ar)"/>
+
+<!-- External APIs (dashed boxes) -->
+<g transform="translate(80,530)"><rect width="150" height="50" rx="8" fill="none" stroke="#636e72" stroke-width="1.5" stroke-dasharray="5,3"/><text x="75" y="23" text-anchor="middle" font-size="11" font-weight="bold" fill="#636e72">CoinGlass API</text><text x="75" y="40" text-anchor="middle" font-size="9" fill="#636e72">外部數據源</text></g>
+<g transform="translate(670,530)"><rect width="150" height="50" rx="8" fill="none" stroke="#636e72" stroke-width="1.5" stroke-dasharray="5,3"/><text x="75" y="23" text-anchor="middle" font-size="11" font-weight="bold" fill="#636e72">Binance API</text><text x="75" y="40" text-anchor="middle" font-size="9" fill="#636e72">外部數據源</text></g>
+<line x1="175" y1="485" x2="175" y2="530" stroke="#636e72" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="725" y1="485" x2="725" y2="530" stroke="#636e72" stroke-width="2" marker-end="url(#ar)"/>
+
+<!-- SQLite DB -->
+<g transform="translate(380,430)" filter="url(#sh)"><rect width="140" height="55" rx="10" fill="url(#d)"/><text x="70" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="white">SQLite DB</text><text x="70" y="42" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.8)">sqlite_database.py</text></g>
+<line x1="450" y1="390" x2="450" y2="430" stroke="#636e72" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="450" y1="485" x2="450" y2="390" stroke="#636e72" stroke-width="2" marker-end="url(#ar)"/>
+</svg>

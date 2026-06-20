@@ -1,0 +1,482 @@
+{
+  "BTCUSDT": {
+    "macd": {
+      "value": 126.5916,
+      "signal": 107.6029,
+      "histogram": 18.9887
+    },
+    "rsi": 62.5,
+    "mfi": 58.3,
+    "volume_24h": 78000000000.0,
+    "price_change_24h": -3.47,
+    "futures_volume_24h": 104000000000,
+    "spot_volume_24h": 41600000000.0,
+    "open_interest": 52000000000,
+    "funding_rate": 0.01
+  },
+  "ETHUSDT": {
+    "macd": {
+      "value": 0.8533,
+      "signal": 0.768,
+      "histogram": 0.0853
+    },
+    "rsi": 55.8,
+    "mfi": 52.1,
+    "volume_24h": 27000000000.0,
+    "price_change_24h": -3.5,
+    "futures_volume_24h": 36000000000,
+    "spot_volume_24h": 14400000000.0,
+    "open_interest": 18000000000,
+    "funding_rate": 0.008
+  },
+  "BNBUSDT": {
+    "macd": {
+      "value": -1.1618,
+      "signal": -0.9875,
+      "histogram": -0.1743
+    },
+    "rsi": 48.2,
+    "mfi": 45.6,
+    "volume_24h": 3150000000.0,
+    "price_change_24h": 0.77,
+    "futures_volume_24h": 4200000000,
+    "spot_volume_24h": 1680000000.0,
+    "open_interest": 2100000000,
+    "funding_rate": 0.005
+  },
+  "SOLUSDT": {
+    "macd": {
+      "value": 0.1388,
+      "signal": 0.118,
+      "histogram": 0.0208
+    },
+    "rsi": 58.0,
+    "mfi": 55.0,
+    "volume_24h": 12750000000.0,
+    "price_change_24h": 4.53,
+    "futures_volume_24h": 17000000000,
+    "spot_volume_24h": 6800000000.0,
+    "open_interest": 8500000000,
+    "funding_rate": 0.012
+  },
+  "XRPUSDT": {
+    "macd": {
+      "value": -0.0023,
+      "signal": -0.0019,
+      "histogram": -0.0003
+    },
+    "rsi": 45.0,
+    "mfi": 42.0,
+    "volume_24h": 4800000000.0,
+    "price_change_24h": -0.76,
+    "futures_volume_24h": 6400000000,
+    "spot_volume_24h": 2560000000.0,
+    "open_interest": 3200000000,
+    "funding_rate": 0.003
+  },
+  "DOGEUSDT": {
+    "macd": {
+      "value": 0.0,
+      "signal": 0.0,
+      "histogram": 0.0
+    },
+    "rsi": 52.0,
+    "mfi": 50.0,
+    "volume_24h": 2700000000.0,
+    "price_change_24h": -3.9,
+    "futures_volume_24h": 3600000000,
+    "spot_volume_24h": 1440000000.0,
+    "open_interest": 1800000000,
+    "funding_rate": 0.006
+  },
+  "ADAUSDT": {
+    "macd": {
+      "value": -0.0003,
+      "signal": -0.0003,
+      "histogram": -0.0
+    },
+    "rsi": 44.0,
+    "mfi": 40.0,
+    "volume_24h": 1425000000.0,
+    "price_change_24h": 0.73,
+    "futures_volume_24h": 1900000000,
+    "spot_volume_24h": 760000000.0,
+    "open_interest": 950000000,
+    "funding_rate": 0.004
+  },
+  "AVAXUSDT": {
+    "macd": {
+      "value": -0.0118,
+      "signal": -0.01,
+      "histogram": -0.0018
+    },
+    "rsi": 38.0,
+    "mfi": 35.0,
+    "volume_24h": 1800000000.0,
+    "price_change_24h": -0.82,
+    "futures_volume_24h": 2400000000,
+    "spot_volume_24h": 960000000.0,
+    "open_interest": 1200000000,
+    "funding_rate": 0.007
+  },
+  "DOTUSDT": {
+    "macd": {
+      "value": -0.0019,
+      "signal": -0.0016,
+      "histogram": -0.0003
+    },
+    "rsi": 42.0,
+    "mfi": 38.0,
+    "volume_24h": 1020000000.0,
+    "price_change_24h": -5.0,
+    "futures_volume_24h": 1360000000,
+    "spot_volume_24h": 544000000.0,
+    "open_interest": 680000000,
+    "funding_rate": 0.005
+  },
+  "LINKUSDT": {
+    "macd": {
+      "value": 0.004,
+      "signal": 0.0036,
+      "histogram": 0.0004
+    },
+    "rsi": 50.0,
+    "mfi": 48.0,
+    "volume_24h": 1230000000.0,
+    "price_change_24h": -4.62,
+    "futures_volume_24h": 1640000000,
+    "spot_volume_24h": 656000000.0,
+    "open_interest": 820000000,
+    "funding_rate": 0.006
+  },
+  "LTCUSDT": {
+    "macd": {
+      "value": 0.0219,
+      "signal": 0.0197,
+      "histogram": 0.0022
+    },
+    "rsi": 51.0,
+    "mfi": 49.0,
+    "volume_24h": 780000000.0,
+    "price_change_24h": 3.79,
+    "futures_volume_24h": 1040000000,
+    "spot_volume_24h": 416000000.0,
+    "open_interest": 520000000,
+    "funding_rate": 0.004
+  },
+  "BCHUSDT": {
+    "macd": {
+      "value": -0.3958,
+      "signal": -0.3364,
+      "histogram": -0.0594
+    },
+    "rsi": 47.0,
+    "mfi": 44.0,
+    "volume_24h": 1170000000.0,
+    "price_change_24h": 0.85,
+    "futures_volume_24h": 1560000000,
+    "spot_volume_24h": 624000000.0,
+    "open_interest": 780000000,
+    "funding_rate": 0.005
+  },
+  "UNIUSDT": {
+    "macd": {
+      "value": -0.0061,
+      "signal": -0.0052,
+      "histogram": -0.0009
+    },
+    "rsi": 40.0,
+    "mfi": 36.0,
+    "volume_24h": 630000000.0,
+    "price_change_24h": -2.75,
+    "futures_volume_24h": 840000000,
+    "spot_volume_24h": 336000000.0,
+    "open_interest": 420000000,
+    "funding_rate": 0.004
+  },
+  "ATOMUSDT": {
+    "macd": {
+      "value": -0.0036,
+      "signal": -0.0031,
+      "histogram": -0.0005
+    },
+    "rsi": 46.0,
+    "mfi": 43.0,
+    "volume_24h": 465000000.0,
+    "price_change_24h": 4.46,
+    "futures_volume_24h": 620000000,
+    "spot_volume_24h": 248000000.0,
+    "open_interest": 310000000,
+    "funding_rate": 0.003
+  },
+  "APTUSDT": {
+    "macd": {
+      "value": -0.0013,
+      "signal": -0.0011,
+      "histogram": -0.0002
+    },
+    "rsi": 43.0,
+    "mfi": 39.0,
+    "volume_24h": 420000000.0,
+    "price_change_24h": 0.17,
+    "futures_volume_24h": 560000000,
+    "spot_volume_24h": 224000000.0,
+    "open_interest": 280000000,
+    "funding_rate": 0.005
+  },
+  "ARBUSDT": {
+    "macd": {
+      "value": -0.0002,
+      "signal": -0.0001,
+      "histogram": -0.0
+    },
+    "rsi": 39.0,
+    "mfi": 35.0,
+    "volume_24h": 270000000.0,
+    "price_change_24h": -2.63,
+    "futures_volume_24h": 360000000,
+    "spot_volume_24h": 144000000.0,
+    "open_interest": 180000000,
+    "funding_rate": 0.006
+  },
+  "SUIUSDT": {
+    "macd": {
+      "value": -0.0014,
+      "signal": -0.0012,
+      "histogram": -0.0002
+    },
+    "rsi": 41.0,
+    "mfi": 37.0,
+    "volume_24h": 375000000.0,
+    "price_change_24h": 4.5,
+    "futures_volume_24h": 500000000,
+    "spot_volume_24h": 200000000.0,
+    "open_interest": 250000000,
+    "funding_rate": 0.008
+  },
+  "NEARUSDT": {
+    "macd": {
+      "value": -0.0043,
+      "signal": -0.0037,
+      "histogram": -0.0006
+    },
+    "rsi": 35.0,
+    "mfi": 30.0,
+    "volume_24h": 480000000.0,
+    "price_change_24h": -4.72,
+    "futures_volume_24h": 640000000,
+    "spot_volume_24h": 256000000.0,
+    "open_interest": 320000000,
+    "funding_rate": 0.007
+  },
+  "INJUSDT": {
+    "macd": {
+      "value": -0.0102,
+      "signal": -0.0087,
+      "histogram": -0.0015
+    },
+    "rsi": 42.0,
+    "mfi": 38.0,
+    "volume_24h": 225000000.0,
+    "price_change_24h": -4.35,
+    "futures_volume_24h": 300000000,
+    "spot_volume_24h": 120000000.0,
+    "open_interest": 150000000,
+    "funding_rate": 0.005
+  },
+  "XAUTUSDT": {
+    "macd": {
+      "value": 2.0735,
+      "signal": 1.8661,
+      "histogram": 0.2073
+    },
+    "rsi": 55.0,
+    "mfi": 52.0,
+    "volume_24h": 2250000000.0,
+    "price_change_24h": 2.74,
+    "futures_volume_24h": 3000000000,
+    "spot_volume_24h": 1200000000.0,
+    "open_interest": 1500000000,
+    "funding_rate": 0.002
+  },
+  "AAPLUSDT": {
+    "macd": {
+      "value": 0.5931,
+      "signal": 0.5042,
+      "histogram": 0.089
+    },
+    "rsi": 58.0,
+    "mfi": 54.0,
+    "volume_24h": 420000000.0,
+    "price_change_24h": -3.12,
+    "futures_volume_24h": 560000000,
+    "spot_volume_24h": 224000000.0,
+    "open_interest": 280000000,
+    "funding_rate": 0.001
+  },
+  "TSLAUSDT": {
+    "macd": {
+      "value": 0.7994,
+      "signal": 0.6795,
+      "histogram": 0.1199
+    },
+    "rsi": 60.0,
+    "mfi": 56.0,
+    "volume_24h": 675000000.0,
+    "price_change_24h": -2.08,
+    "futures_volume_24h": 900000000,
+    "spot_volume_24h": 360000000.0,
+    "open_interest": 450000000,
+    "funding_rate": 0.002
+  },
+  "NVDAUSDT": {
+    "macd": {
+      "value": 0.1046,
+      "signal": 0.0942,
+      "histogram": 0.0105
+    },
+    "rsi": 56.0,
+    "mfi": 53.0,
+    "volume_24h": 780000000.0,
+    "price_change_24h": 4.6,
+    "futures_volume_24h": 1040000000,
+    "spot_volume_24h": 416000000.0,
+    "open_interest": 520000000,
+    "funding_rate": 0.001
+  },
+  "MSFTUSDT": {
+    "macd": {
+      "value": 0.7636,
+      "signal": 0.6491,
+      "histogram": 0.1145
+    },
+    "rsi": 59.0,
+    "mfi": 55.0,
+    "volume_24h": 480000000.0,
+    "price_change_24h": -3.19,
+    "futures_volume_24h": 640000000,
+    "spot_volume_24h": 256000000.0,
+    "open_interest": 320000000,
+    "funding_rate": 0.001
+  },
+  "AMZNUSDT": {
+    "macd": {
+      "value": 0.1216,
+      "signal": 0.1094,
+      "histogram": 0.0122
+    },
+    "rsi": 53.0,
+    "mfi": 50.0,
+    "volume_24h": 270000000.0,
+    "price_change_24h": 1.18,
+    "futures_volume_24h": 360000000,
+    "spot_volume_24h": 144000000.0,
+    "open_interest": 180000000,
+    "funding_rate": 0.001
+  },
+  "GOOGLUSDT": {
+    "macd": {
+      "value": 0.1831,
+      "signal": 0.1648,
+      "histogram": 0.0183
+    },
+    "rsi": 54.0,
+    "mfi": 51.0,
+    "volume_24h": 315000000.0,
+    "price_change_24h": 3.86,
+    "futures_volume_24h": 420000000,
+    "spot_volume_24h": 168000000.0,
+    "open_interest": 210000000,
+    "funding_rate": 0.001
+  },
+  "METAUSDT": {
+    "macd": {
+      "value": 1.1534,
+      "signal": 0.9804,
+      "histogram": 0.173
+    },
+    "rsi": 57.0,
+    "mfi": 53.0,
+    "volume_24h": 285000000.0,
+    "price_change_24h": 3.86,
+    "futures_volume_24h": 380000000,
+    "spot_volume_24h": 152000000.0,
+    "open_interest": 190000000,
+    "funding_rate": 0.001
+  },
+  "NFLXUSDT": {
+    "macd": {
+      "value": 0.0388,
+      "signal": 0.0349,
+      "histogram": 0.0039
+    },
+    "rsi": 55.0,
+    "mfi": 51.0,
+    "volume_24h": 142500000.0,
+    "price_change_24h": -3.67,
+    "futures_volume_24h": 190000000,
+    "spot_volume_24h": 76000000.0,
+    "open_interest": 95000000,
+    "funding_rate": 0.001
+  },
+  "AMDUSDT": {
+    "macd": {
+      "value": 1.0776,
+      "signal": 0.9159,
+      "histogram": 0.1616
+    },
+    "rsi": 61.0,
+    "mfi": 57.0,
+    "volume_24h": 570000000.0,
+    "price_change_24h": 0.88,
+    "futures_volume_24h": 760000000,
+    "spot_volume_24h": 304000000.0,
+    "open_interest": 380000000,
+    "funding_rate": 0.002
+  },
+  "QQQUSDT": {
+    "macd": {
+      "value": 1.4826,
+      "signal": 1.2602,
+      "histogram": 0.2224
+    },
+    "rsi": 57.0,
+    "mfi": 54.0,
+    "volume_24h": 1275000000.0,
+    "price_change_24h": -4.65,
+    "futures_volume_24h": 1700000000,
+    "spot_volume_24h": 680000000.0,
+    "open_interest": 850000000,
+    "funding_rate": 0.001
+  },
+  "SPYUSDT": {
+    "macd": {
+      "value": 1.4927,
+      "signal": 1.2688,
+      "histogram": 0.2239
+    },
+    "rsi": 56.0,
+    "mfi": 53.0,
+    "volume_24h": 1380000000.0,
+    "price_change_24h": -0.28,
+    "futures_volume_24h": 1840000000,
+    "spot_volume_24h": 736000000.0,
+    "open_interest": 920000000,
+    "funding_rate": 0.001
+  },
+  "DIAUSDT": {
+    "macd": {
+      "value": -0.0002,
+      "signal": -0.0002,
+      "histogram": -0.0
+    },
+    "rsi": 35.0,
+    "mfi": 30.0,
+    "volume_24h": 67500000.0,
+    "price_change_24h": 0.05,
+    "futures_volume_24h": 90000000,
+    "spot_volume_24h": 36000000.0,
+    "open_interest": 45000000,
+    "funding_rate": 0.001
+  }
+}

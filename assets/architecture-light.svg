@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" width="1200" height="650">
+  <defs>
+    <linearGradient id="userGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4a90d9"/><stop offset="100%" stop-color="#357abd"/>
+    </linearGradient>
+    <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c5cff"/><stop offset="100%" stop-color="#5a3de8"/>
+    </linearGradient>
+    <linearGradient id="mcpGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2ecc71"/><stop offset="100%" stop-color="#27ae60"/>
+    </linearGradient>
+    <linearGradient id="fastapiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00b894"/><stop offset="100%" stop-color="#009975"/>
+    </linearGradient>
+    <linearGradient id="signalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e17055"/><stop offset="100%" stop-color="#d35400"/>
+    </linearGradient>
+    <linearGradient id="dbGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a29bfe"/><stop offset="100%" stop-color="#6c5ce7"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#636e72"/>
+    </marker>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="650" fill="#f8f9fa" rx="12"/>
+  
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" font-family="Noto Sans SC,sans-serif" font-size="24" font-weight="900" fill="#2d3436">系統架構圖</text>
+
+  <!-- ===== LAYER 1: 使用者 ===== -->
+  <g transform="translate(50,100)" filter="url(#shadow)">
+    <rect width="150" height="75" rx="12" fill="url(#userGrad)"/>
+    <text x="75" y="35" text-anchor="middle" font-family="Noto Sans SC,sans-serif" font-size="17" font-weight="700" fill="white">使用者</text>
+    <text x="75" y="58" text-anchor="middle" font-family="sans-serif" font-size="11" fill="rgba(255,255,255,0.8)">Discord / Web</text>
+  </g>
+
+  <!-- Arrow: 使用者 → AI Agent -->
+  <line x1="200" y1="137" x2="260" y2="137" stroke="#636e72" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- ===== LAYER 2: AI Agent ===== -->
+  <g transform="translate(260,100)" filter="url(#shadow)">
+    <rect width="150" height="75" rx="12" fill="url(#aiGrad)"/>
+    <text x="75" y="35" text-anchor="middle" font-family="Noto Sans SC,sans-serif" font-size="17" font-weight="700" fill="white">AI Agent</text>
+    <text x="75" y="58" text-anchor="middle" font-family="sans-serif" font-size="11" fill="rgba(255,255,255,0.8)">Hermes</text>
+  </g>
+
+  <!-- Arrow: AI Agent → Trading MCP (向上右) -->
+  <line x1="410" y1="120" x2="480" y2="95" stroke="#636e72" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- Arrow: AI Agent → Signal MCP (向下右) -->
+  <line x1="410" y1="155" x2="480" y2="180" stroke="#636e72" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- ===== LAYER 3: MCP Servers (並排) ===== -->
+  <!-- Trading MCP -->
+  <g transform="translate(480,65)" filter="url(#shadow)">
+    <rect width="170" height="65" rx="10" fill="url(#mcpGrad)"/>
+    <text x="85" y="30" text-anchor="middle" font-family="Noto Sans SC,sans-serif" font-size="15" font-weight="700" fill="white">Trading MCP</text>
+    <text x="85" y="50" text-anchor="middle" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.8)">下單 / 查詢 / 止損</text>
+  </g>
+
+  <!-- Signal MCP -->
+  <g transform="translate(480,155)" filter="url(#shadow)">
+    <rect width="170" height="65" rx="10" fill="url(#mcpGrad)"/>
+    <text x="85" y="30" text-anchor="middle" font-family="Noto Sans SC,sans-serif" font-size="15" font-weight="700" fill="white">Signal MCP</text>
+    <text x="85" y="50" text-anchor="middle" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.8)">訊號 / 分析</text>
+  </g>
+
+  <!-- Arrow: Trading MCP → FastAPI -->
+  <line x1="650" y1="100" x2="730" y2="100" stroke="#636e72" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- Arrow: Signal MCP → FastAPI -->
+  <line x1="650" y1="180" x2="730" y2="140" stroke="#636e72" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- ===== LAYER 4: FastAPI Core ===== -->
+  <g transform="translate(730,85)" filter="url(#shadow)">
+    <rect width="170" height="75" rx="12" fill="url(#fastapiGrad)"/>
+    <text x="85" y="35" text-anchor="middle" font-family="Noto Sans SC,sans-serif" font-size="16" font-weight="700" fill="white">FastAPI Core</text>
+    <text x="85" y="58" text-anchor="middle" font-family="sans-serif" font-size="11" fill="rgba(255,255,255,0.8)">REST API 後端</text>
+  </g>
+
+  <!-- Arrow: FastAPI → Signal Layer (向下) -->
+  <line x1="815" y1="160" x2="815" y2="230" stroke="#636e72" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- ===== LAYER 5: Signal Layer (在 FastAPI 下方) ===== -->
+  <g transform="translate(720,230)" filter="url(#shadow)">
+    <rect width="190" height="70" rx="10" fill="url(#signalGrad)"/>
+    <text x="95" y="32" text-anchor="middle" font-family="Noto Sans SC,sans-serif" font-size="15" font-weight="700" fill="white">Signal Layer</text>
+    <text x="95" y="53" text-anchor="middle" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.8)">scorer / calculator / router</text>
+  </g>
+
+  <!-- ===== SQLite (放在更右邊，跟 Signal Layer 拉開距離) ===== -->
+  <g transform="translate(1000,85)" filter="url(#shadow)">
+    <rect width="120" height="75" rx="12" fill="url(#dbGrad)"/>
+    <text x="60" y="35" text-anchor="middle" font-family="Noto Sans SC,sans-serif" font-size="15" font-weight="700" fill="white">SQLite</text>
+    <text x="60" y="58" text-anchor="middle" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.8)">資料庫</text>
+  </g>
+
+  <!-- Arrow: FastAPI ↔ SQLite (雙向) -->
+  <line x1="900" y1="110" x2="1000" y2="110" stroke="#636e72" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="1000" y1="130" x2="900" y2="130" stroke="#636e72" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- Arrow: Signal Layer ↔ SQLite (雙向) -->
+  <line x1="910" y1="255" x2="1000" y2="255" stroke="#636e72" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="1000" y1="275" x2="910" y2="275" stroke="#636e72" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- ===== LAYER 6: Client Modules (左右分開) ===== -->
+
+  <!-- Arrow: FastAPI → coinglass_client (向左下) -->
+  <line x1="750" y1="160" x2="350" y2="310" stroke="#636e72" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- Arrow: Signal Layer → coinglass_client (向下左) -->
+  <line x1="740" y1="295" x2="430" y2="330" stroke="#636e72" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- coinglass_client.py -->
+  <g transform="translate(250,310)" filter="url(#shadow)">
+    <rect width="190" height="65" rx="10" fill="url(#signalGrad)"/>
+    <text x="95" y="28" text-anchor="middle" font-family="Noto Sans SC,sans-serif" font-size="13" font-weight="700" fill="white">coinglass_client.py</text>
+    <text x="95" y="48" text-anchor="middle" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.8)">市場情緒數據</text>
+  </g>
+
+  <!-- Arrow: FastAPI → binance_client (向右下) -->
+  <line x1="870" y1="160" x2="870" y2="310" stroke="#636e72" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- Arrow: Signal Layer → binance_client (向下) -->
+  <line x1="815" y1="300" x2="815" y2="330" stroke="#636e72" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- binance_client.py -->
+  <g transform="translate(720,330)" filter="url(#shadow)">
+    <rect width="190" height="65" rx="10" fill="url(#signalGrad)"/>
+    <text x="95" y="28" text-anchor="middle" font-family="Noto Sans SC,sans-serif" font-size="13" font-weight="700" fill="white">binance_client.py</text>
+    <text x="95" y="48" text-anchor="middle" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.8)">K線 / 訂單簿數據</text>
+  </g>
+
+  <!-- ===== LAYER 7: External APIs (虛線框) ===== -->
+
+  <!-- Arrow: coinglass_client → CoinGlass API -->
+  <line x1="345" y1="375" x2="345" y2="425" stroke="#636e72" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- CoinGlass API -->
+  <g transform="translate(250,425)">
+    <rect width="190" height="65" rx="10" fill="none" stroke="#636e72" stroke-width="2" stroke-dasharray="6,4"/>
+    <text x="95" y="28" text-anchor="middle" font-family="Noto Sans SC,sans-serif" font-size="14" font-weight="600" fill="#636e72">CoinGlass API</text>
+    <text x="95" y="50" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#999">外部數據源</text>
+  </g>
+
+  <!-- Arrow: binance_client → Binance API -->
+  <line x1="815" y1="395" x2="815" y2="445" stroke="#636e72" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- Binance API -->
+  <g transform="translate(720,445)">
+    <rect width="190" height="65" rx="10" fill="none" stroke="#636e72" stroke-width="2" stroke-dasharray="6,4"/>
+    <text x="95" y="28" text-anchor="middle" font-family="Noto Sans SC,sans-serif" font-size="14" font-weight="600" fill="#636e72">Binance API</text>
+    <text x="95" y="50" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#999">外部數據源</text>
+  </g>
+
+  <!-- ===== Legend (左下角) ===== -->
+  <g transform="translate(50,530)">
+    <rect width="220" height="90" rx="8" fill="white" stroke="#ddd" stroke-width="1"/>
+    <text x="15" y="22" font-family="sans-serif" font-size="11" font-weight="700" fill="#666">圖例</text>
+    <rect x="15" y="32" width="14" height="14" rx="3" fill="#2ecc71"/>
+    <text x="35" y="44" font-family="sans-serif" font-size="10" fill="#666">MCP 模組</text>
+    <rect x="15" y="56" width="14" height="14" rx="3" fill="#00b894"/>
+    <text x="35" y="68" font-family="sans-serif" font-size="10" fill="#666">FastAPI 後端</text>
+    <rect x="100" y="32" width="14" height="14" rx="3" fill="#e17055"/>
+    <text x="120" y="44" font-family="sans-serif" font-size="10" fill="#666">Signal 層</text>
+    <rect x="100" y="56" width="14" height="14" rx="3" fill="none" stroke="#636e72" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <text x="120" y="68" font-family="sans-serif" font-size="10" fill="#666">外部 API</text>
+  </g>
+</svg>

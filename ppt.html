@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>加密貨幣交易系統 — MCP 插件</title>
+<style>
+
+/* html-ppt :: shared webfonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@200;300;400;500;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+/* html-ppt :: base.css — reset + shared tokens + layout primitives */
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f7f7f8;
+  --surface: #ffffff;
+  --surface-2: #f2f2f4;
+  --border: rgba(0,0,0,.08);
+  --border-strong: rgba(0,0,0,.16);
+  --text-1: #111216;
+  --text-2: #55596a;
+  --text-3: #8a8f9e;
+  --accent: #3b6cff;
+  --accent-2: #7a5cff;
+  --accent-3: #ff5c8a;
+  --good: #1aaf6c;
+  --warn: #f5a524;
+  --bad:  #e0445a;
+  --grad: linear-gradient(135deg,#3b6cff,#7a5cff 55%,#ff5c8a);
+  --radius: 18px;
+  --radius-sm: 12px;
+  --shadow: 0 10px 30px rgba(18,24,40,.08), 0 2px 6px rgba(18,24,40,.04);
+  --font-sans: 'Inter','Noto Sans SC',-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;
+  --font-mono: 'JetBrains Mono',SFMono-Regular,Menlo,monospace;
+  --letter-tight: -.03em;
+  --ease: cubic-bezier(.4,0,.2,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text-1);
+  font-family:var(--font-sans);font-weight:400;line-height:1.6;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  letter-spacing: -.01em}
+img,svg,video{max-width:100%;display:block}
+code,kbd,pre,samp{font-family:var(--font-mono)}
+
+/* ================= SLIDE SYSTEM ================= */
+.deck{position:relative;width:100vw;height:100vh;overflow:hidden;background:var(--bg)}
+.slide{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:72px 96px;
+  box-sizing:border-box;
+  opacity:0;pointer-events:none;
+  transition:opacity .5s var(--ease), transform .5s var(--ease);
+  transform:translateX(30px);
+  overflow:hidden;
+}
+.slide.is-active{opacity:1;pointer-events:auto;transform:translateX(0);z-index:2}
+.slide.is-prev{transform:translateX(-30px)}
+
+/* ================= TYPOGRAPHY ================= */
+.gradient-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+
+/* ================= dir-key-nav-minimal ================= */
+.tpl-dir-key-nav-minimal{
+  --dk-font:'Inter','Noto Sans SC','PingFang SC',-apple-system,sans-serif;
+  --dk-mono:'JetBrains Mono',monospace;
+  background:#f8f9fa;
+  color:#1a1a1a;
+  font-family:var(--dk-font);
+}
+.tpl-dir-key-nav-minimal .slide{padding:80px 104px;overflow:hidden;position:absolute;inset:0}
+.tpl-dir-key-nav-minimal .t-indigo{background:#f0f4ff;color:#1a1a1a}
+.tpl-dir-key-nav-minimal .t-cream{background:#fffbeb;color:#1a1a1a}
+.tpl-dir-key-nav-minimal .t-crimson{background:#fff5f5;color:#1a1a1a}
+.tpl-dir-key-nav-minimal .t-emerald{background:#f0fdf4;color:#1a1a1a}
+.tpl-dir-key-nav-minimal .t-slate{background:#f0f2f5;color:#1a1a1a}
+.tpl-dir-key-nav-minimal .t-violet{background:#f5f0ff;color:#1a1a1a}
+.tpl-dir-key-nav-minimal .t-white{background:#ffffff;color:#1a1a1a}
+.tpl-dir-key-nav-minimal .t-charcoal{background:#f8f9fa;color:#1a1a1a}
+
+.tpl-dir-key-nav-minimal .dk-snum{position:absolute;top:30px;right:48px;font-size:16px;font-weight:700;letter-spacing:3px;text-transform:uppercase;font-family:var(--dk-mono);color:#999}
+
+.tpl-dir-key-nav-minimal .dk-eyebrow{font-size:16px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;opacity:.85;margin-bottom:22px;display:flex;align-items:center;gap:14px}
+.tpl-dir-key-nav-minimal .dk-eyebrow::after{content:'';flex:1;max-width:120px;height:1px;background:currentColor;opacity:.3}
+.tpl-dir-key-nav-minimal .dk-h0{font-size:80px;font-weight:900;line-height:1.1;letter-spacing:-2px;margin:0 0 20px}
+.tpl-dir-key-nav-minimal .dk-h1{font-size:52px;font-weight:900;line-height:1.15;letter-spacing:-1px;margin:0 0 18px}
+.tpl-dir-key-nav-minimal .dk-h2{font-size:38px;font-weight:800;line-height:1.25;letter-spacing:-0.5px;margin:0 0 16px}
+.tpl-dir-key-nav-minimal .dk-lede{font-size:18px;line-height:1.6;opacity:.85;max-width:900px;font-weight:400}
+.tpl-dir-key-nav-minimal .dk-col p{font-size:16px;line-height:1.55;opacity:.85;font-weight:400}
+.tpl-dir-key-nav-minimal .dk-lede strong{font-weight:700;opacity:1}
+
+.tpl-dir-key-nav-minimal .dk-line{display:block;width:90px;height:4px;background:currentColor;margin:30px 0;opacity:.35}
+.tpl-dir-key-nav-minimal .dk-accent{color:#3b6cff}
+
+.tpl-dir-key-nav-minimal .dk-list{list-style:none;padding:0;margin:28px 0 0;font-family:var(--dk-mono);font-size:16px;line-height:2}
+.tpl-dir-key-nav-minimal .dk-list li{padding-left:30px;position:relative;font-weight:400;opacity:.85}
+.tpl-dir-key-nav-minimal .dk-list li::before{content:'→';position:absolute;left:0;opacity:.5}
+.tpl-dir-key-nav-minimal .dk-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:36px}
+.tpl-dir-key-nav-minimal .dk-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;margin-top:32px}
+.tpl-dir-key-nav-minimal .dk-col h3{font-size:20px;font-weight:700;margin-bottom:10px}
+.tpl-dir-key-nav-minimal .dk-col p{font-size:16px;line-height:1.55;opacity:.85;font-weight:400}
+.tpl-dir-key-nav-minimal .dk-code{font-family:var(--dk-mono);font-size:13px;line-height:1.9;background:rgba(0,0,0,.06);border:1px solid rgba(0,0,0,.12);border-radius:10px;padding:24px 28px;margin-top:24px;white-space:pre;color:#333}
+.tpl-dir-key-nav-minimal .dk-keyhint{position:absolute;bottom:34px;left:104px;font-family:var(--dk-mono);font-size:14px;letter-spacing:2px;text-transform:uppercase;opacity:.8}
+.tpl-dir-key-nav-minimal .dk-page{position:absolute;bottom:34px;right:48px;font-family:var(--dk-mono);font-size:14px;letter-spacing:2px;opacity:.8}
+
+/* Card styles */
+.dk-card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:14px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.dk-card-accent{border-left:4px solid var(--accent)}
+.dk-card-green{border-left:4px solid #1aaf6c}
+.dk-card-violet{border-left:4px solid #7a5cff}
+.dk-card-pink{border-left:4px solid #ff5c8a}
+
+/* Flow diagram */
+.dk-flow{display:flex;align-items:center;gap:12px;margin-top:24px;flex-wrap:wrap}
+.dk-flow-step{padding:14px 20px;border-radius:12px;background:#fff;border:1px solid rgba(0,0,0,.08);font-size:16px;font-weight:600;box-shadow:0 2px 6px rgba(0,0,0,.04)}
+.dk-flow-arrow{opacity:.3;font-size:20px}
+
+/* Chat bubbles */
+.dk-chat{display:flex;flex-direction:column;gap:12px;max-width:750px;margin-top:24px}
+.dk-chat-msg{padding:14px 20px;border-radius:14px;font-size:16px;max-width:85%}
+.dk-chat-user{background:rgba(59,108,255,.1);border-left:3px solid #3b6cff;align-self:flex-start}
+.dk-chat-agent{background:rgba(122,92,255,.1);border-right:3px solid #7a5cff;align-self:flex-end;text-align:right}
+.dk-chat-sys{background:rgba(26,175,108,.08);border:1px dashed rgba(26,175,108,.3);align-self:center;text-align:center;max-width:95%;font-size:14px;opacity:.85}
+.dk-chat-msg strong{display:block;font-size:13px;margin-bottom:4px;letter-spacing:1px}
+
+/* Tool definition card */
+.dk-tool{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:14px;padding:20px 24px;margin-bottom:12px}
+.dk-tool-name{font-family:var(--dk-mono);font-size:14px;font-weight:700;color:#3b6cff;margin-bottom:6px}
+.dk-tool-desc{font-size:13px;opacity:.85;line-height:1.5}
+
+/* Purpose callout */
+.dk-purpose{background:rgba(122,92,255,.08);border:1px solid rgba(122,92,255,.2);border-radius:12px;padding:16px 20px;margin-top:12px}
+.dk-purpose strong{color:#7a5cff;font-size:15px}
+.dk-purpose p{font-size:14px;opacity:.8;margin:4px 0 0;line-height:1.5}
+
+/* Architecture layers */
+.dk-layer{padding:16px 24px;border-radius:12px;text-align:center;font-size:17px;font-weight:700;width:100%}
+.dk-layer-api{background:rgba(26,175,108,.08);border:1px solid rgba(26,175,108,.2)}
+.dk-layer-process{background:#fff;border:2px solid rgba(59,108,255,.3);box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.dk-layer-api-svc{background:#fff;border:1px solid rgba(0,0,0,.08);box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.dk-layer-mcp{background:rgba(122,92,255,.1);border:2px solid rgba(122,92,255,.35)}
+.dk-layer-agent{background:#fff;border:2px solid rgba(59,108,255,.3);box-shadow:0 2px 12px rgba(0,0,0,.06)}
+
+/* Scene card */
+.dk-scene{background:#fff;border:2px solid rgba(59,108,255,.15);border-radius:16px;padding:28px 32px;margin-top:20px}
+.dk-scene-title{font-size:20px;font-weight:800;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.dk-scene-steps{display:flex;flex-direction:column;gap:10px}
+.dk-scene-step{display:flex;align-items:start;gap:12px;padding:12px 16px;background:var(--bg-soft);border-radius:10px}
+.dk-scene-step .step-num{font-family:var(--dk-mono);font-size:16px;font-weight:800;color:#3b6cff;min-width:32px}
+.dk-scene-step .step-content{font-size:16px;line-height:1.5;opacity:.8}
+
+/* Tech detail block */
+.tech-detail{background:#f1f3f5;border-left:4px solid #3b82f6;padding:16px 20px;margin-top:24px;border-radius:8px;font-size:15px;line-height:1.6;font-family:'JetBrains Mono',monospace;overflow-x:auto}
+.tech-detail h4{margin:0 0 8px 0;font-size:16px;color:#3b82f6;font-family:'Inter','Noto Sans SC',sans-serif}
+.tech-detail pre{margin:0;white-space:pre-wrap;word-wrap:break-word}
+
+</style>
+</head>
+<body class="tpl-dir-key-nav-minimal">
+<div class="deck">
+
+<!-- 1. 封面 -->
+  <section class="slide t-indigo is-active" data-title="交易所對接AI智能體">
+    <div class="dk-snum">01 / 18</div>
+    <div style="margin:auto 0">
+      <div class="dk-eyebrow">AI Agent + MCP Plugin</div>
+      <h1 class="dk-h0">加密貨幣<br><span class="dk-accent">交易所 對接AI智能體</span></h1>
+      <span class="dk-line"></span>
+      <p style="margin-top:24px;font-size:26px;opacity:.95">第13組</p>
+      <p style="margin-top:-26px;font-size:26px;opacity:.95">組員: 黃正宇</p>
+      <p class="dk-lede" style="margin-top:46px;font-size:20px;opacity:.9">以 MCP 為核心的 AI Agent 一體化插件</p>
+      <p style="margin-top:12px;font-size:20px;color:#3b82f6;font-weight:600">「讓你的 AI 在虛擬市場裡面遨遊天際」</p>
+    </div>
+    <div class="dk-keyhint">cover</div>
+    <div class="dk-page">01</div>
+  </section>
+
+  
+
+  <!-- 02. 90% 的 AI 專案長這樣 -->
+  <section class="slide t-slate" data-title="被困於電腦中的智能">
+    <div class="dk-snum">02 / 18</div>
+    <div style="margin:auto 0">
+      <div class="dk-eyebrow">The Problem</div>
+      <h2 class="dk-h1">傳統 AI 整合專案<br>與<span class="dk-accent">MCP 架構的差異</span>。</h2>
+      <div style="margin-top:20px;text-align:center;">
+      <img src="assets/before-after-v2.svg" alt="Before/After 對比圖" style="max-width:850px;width:100%;height:auto;display:block;margin:0 auto;"/>      </div>
+    </div>
+    <div class="dk-keyhint">problem</div>
+    <div class="dk-page">02</div>
+  </section>
+
+  <!-- 03. MCP 是什麼？(合併原 04+05) -->
+  <section class="slide t-violet" data-title="MCP 是什麼？">
+    <div class="dk-snum">03 / 18</div>
+    <div style="margin:auto 0">
+      <div class="dk-eyebrow">Model Context Protocol</div>
+      <h2 class="dk-h1" style="font-size:42px;margin-bottom:12px;">MCP 到底是<br><span class="dk-accent">什麼東西</span>？</h2>
+      <p class="dk-lede"><strong>MCP (Model Context Protocol)</strong> 是由 Anthropic 提出的開放標準，讓 AI 模型能安全地連接並使用外部工具。</p>
+      <div class="dk-grid-2" style="margin-top:10px; opacity:1"> 
+        <div class="dk-col">
+          <h3>沒有 MCP 之前</h3>
+          <p style="font-size:18px">每個 AI 工具要寫一套專屬整合<br>
+          ChatGPT 一套、Claude 一套、Gemini 一套<br>
+          開發者疲於維護多個版本</p>
+        </div>
+        <div class="dk-col">
+          <h3>有了 MCP 之後</h3>
+          <p style="font-size:18px">寫一次 MCP Server，所有 AI 都能用<br>
+          像是 USB — 插上去就能用<br>
+          一次開發，到處通用</p>
+        </div>
+      </div>
+      <div class="tech-detail">
+        <h4>📡 JSON-RPC 2.0 通訊協定</h4>
+        <pre style="font-size:11px;">POST /mcp HTTP/1.1
+Content-Type: application/json
+
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "tools/call",
+  "params": {
+    "name": "get_analyze_RMMA_singal",
+    "arguments": {
+      "symbol": "BTCUSDT"
+    }
+  }
+}</pre>
+      </div>
+    </div>
+    <div class="dk-keyhint">mcp · what</div>
+    <div class="dk-page">03</div>
+  </section>
+<!-- 2. 主要功能與目標 -->
+<!-- 2. 主要功能與目標 -->
+  <section class="slide t-white" data-title="主要功能與目標">
+    <div class="dk-snum">04 / 18</div>
+    <div style="margin:auto 0">
+      <div class="dk-eyebrow">Features & Goals</div>
+      <h2 class="dk-h1">這個系統<br><span class="dk-accent">能做什麼</span>？</h2>
+      <span class="dk-line"></span>
+      <div class="dk-grid-2">
+        <div class="dk-col">
+          <h3 style="font-size:22px;">🎯 功能目標</h3>
+          <p style="font-size:18px;line-height:1.7;">透過自然語言與加密貨幣市場進行互動</p>
+          <p style="font-size:18px;line-height:1.7;">根據你的指示執行你的交易計畫，甚至全自動進行交易</p>
+          <p style="font-size:18px;line-height:1.7;">讓 AI Agent 可以理解走勢，"看"到K線</p>
+          <p style="font-size:18px;line-height:1.7;"></p>
+        </div>
+        <div class="dk-col">
+          <h3 style="font-size:22px;">🚀 設計理念</h3>
+          <p style="font-size:18px;line-height:1.7;"><strong>插件化</strong>：一次開發，所有支持 MCP 的 AI 平台都能使用</p>
+          <p style="font-size:18px;line-height:1.7;"><strong>標準化</strong>：從內到外的通訊使用統一 JSON 模板定義，資料鏈路簡單易讀</p>
+          <p style="font-size:18px;line-height:1.7;"><strong>輕便性</strong>：輸出結果已標準化與過濾，只留下需要的資訊，讓 AI 容易理解數據，同時減少不必要token消耗</p>
+          <p style="font-size:18px;line-height:1.7;"><strong>易擴展</strong>：模塊化設計，輕鬆新增更多工具，端點，數據源，處裡邏輯</p>
+        </div>
+      </div>
+    </div>
+    <div class="dk-keyhint">features</div>
+    <div class="dk-page">04</div>
+  </section>
+  
+
+  <!-- 05. 系統架構總覽 -->
+  <section class="slide t-slate" data-title="系統架構總覽">
+    <div class="dk-snum">05 / 18</div>
+    <div style="margin:auto 0">
+      <div class="dk-eyebrow">System Architecture</div>
+      <h2 class="dk-h1">整體<span class="dk-accent">架構流程</span>。</h2>
+      <div style="margin-top:18px;text-align:center;">
+        <img src="assets/deckv1.png?raw=true" alt="系統架構圖" style="max-width:1100px;max-height:580px;"/>
+      </div>
+    </div>
+    <div class="dk-keyhint">architecture</div>
+    <div class="dk-page">05</div>
+  </section>
+
+  <!-- 14. 為什麼這個架構好 -->
+  <section class="slide t-crimson" data-title="架構優勢">
+    <div class="dk-snum">06 / 18</div>
+    <div style="margin:auto 0">
+      <div class="dk-eyebrow">Why This Approach</div>
+      <h2 class="dk-h1">為什麼選擇<br><span class="dk-accent">MCP 標準化</span>？</h2>
+      <div class="dk-grid-2">
+        <div class="dk-col">
+          <h3>✅ 一次開發，處處可用</h3>
+          <p style="font-size:18px">寫一個 MCP Server 後，Hermes、OpenClaw、Claude</p>
+          <p style="font-size:18px">Cursor 都可以一鍵接入</p>
+        </div>
+        <div class="dk-col">
+          <h3>✅ 標準化工具描述</h3>
+          <p style="font-size:18px">AI 自動理解工具功能，不需要額外教學，你只需要給出任務目標</p>
+          <p style="font-size:18px">讓 Agent 自己探索!</p>
+        </div>
+        <div class="dk-col">
+          <h3>✅ 模組化設計</h3>
+          <p style="font-size:18px">新增功能時只需修改 MCP Tool 定義，當 Agent 刷新後將自動取得新工具列表</p>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:14px;text-align:center;">
+      <img src="assets/multi-client.svg" alt="多客戶端圖" style="max-width:600px;width:100%;height:auto;display:block;margin:8px auto;"/>
+    </div>
+
+    <div class="dk-keyhint">advantages</div>
+    <div class="dk-page">06</div>
+  </section>
+
+  <!-- 06. MCP 插件功能 -->
+  <section class="slide t-emerald" data-title="MCP 插件功能" style="justify-content:flex-start;overflow-y:auto;">
+    <div class="dk-snum">07 / 18</div>
+    <div style="margin:auto 0">
+      <div class="dk-eyebrow">Our MCP Plugin</div>
+      <h2 class="dk-h1" style="font-size:42px;margin-bottom:12px;">AI Agent 能透過<br><span class="dk-accent">我們的工具做什麼</span>？</h2>      <div class="dk-grid-2" style="margin-top:16px;gap:28px;">
+        <div class="dk-col">
+          <h3 style="font-size:18px;">📊 查詢幣別資訊</h3>
+          <p><code>get_symbol_info</code> — 獲取幣別基本資料、交易對資訊</p>
+          <div class="dk-col" style="margin-top:10px">
+          <h3 style="font-size:18px;">📈 技術分析訊號</h3>
+          <p><code>get_analyze_RMMA_singal</code> — 多週期共振分析，回傳買賣訊號與分數</p>
+          </div>
+          <div class="dk-col" style="margin-top:10px">
+          <h3 style="font-size:18px;">💰 推薦倉位大小</h3>
+          <p><code>get_recommended_size</code> — 根據風險參數自動計算倉位</p>
+          </div>
+        </div>
+        <div class="dk-col">
+          <h3 style="font-size:18px;">👛 查詢錢包餘額</h3>
+          <p><code>get_wallet_balance</code> — 查看當前資產分佈</p>
+          <div class="dk-col" style="margin-top:10px">
+          <h3 style="font-size:18px;">📝 執行下單</h3>
+          <p><code>place_market_order</code> — 直接開立多單或空單</p>
+          </div>
+          <div class="dk-col" style="margin-top:10px">
+          <h3 style="font-size:18px;">🛡️ 設定停損</h3>
+          <p><code>set_stop_loss</code> — 自動設定停損保護</p>
+          </div>
+        </div>
+      </div>
+      <div class="tech-detail" style="margin-top:16px;padding:12px 16px;font-size:16px;max-width:880px;">
+        <h4 style="font-size:14px;">🔧 Tool Schema 定義(JSON)</h4>
+        <pre style="font-size:12px;line-height:1.6;">{
+  "name": "get_recommended_size",
+  "description": "根據目前餘額與傳入的槓桿，計算推薦的 USDT 名義持倉價值",       ### 給Agent看的工具描述
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "leverage": {"type": "integer", "description": "預計使用的槓桿倍數", "default": 10} ### 定義可傳入的參數與用途
+    },
+    "required": ["leverage"]       ### 告訴Agent必須傳入的參數
+  }
+}</pre>
+      </div>
+    </div>
+    <div class="dk-keyhint">plugin · tools</div>
+    <div class="dk-page">07</div>
+  </section>
+<!-- 7. 資料處理流程 -->
+<section class="slide t-cream" data-title="資料處理流程">
+  <div class="dk-snum">08 / 18</div>
+  <div style="margin:auto 0; width:100%;">
+    <div class="dk-eyebrow">Data Pipeline</div>
+    <h2 class="dk-h1" style="font-size:42px;margin-bottom:12px;">從原始數據到<br><span class="dk-accent">AI 可用</span>的過程。</h2>
+
+    <!-- 雙欄排版：左側步驟 + 右側 FastAPI -->
+    <div style="display:flex; gap:32px; align-items:flex-start; margin-top:16px;">
+      
+      <!-- 左側：資料處理四步驟 -->
+      <div style="flex: 1.15; min-width:0;">
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;align-items:start;gap:14px;padding:10px 20px;background:#fff;border-radius:10px;border-left:4px solid #1aaf6c;">
+            <div style="font-family:var(--dk-mono);font-size:20px;font-weight:800;color:#1aaf6c;min-width:40px">①</div>
+            <div><strong style="font-size:19px">接取外部 API</strong><p style="font-size:16px;opacity:.9;margin:3px 0 0">從 Binance、CoinGlass 等來源拉取原始數據（倉位、價格、成交量、訂單簿...）</p></div>
+          </div>
+          <div style="display:flex;align-items:start;gap:14px;padding:10px 20px;background:#fff;border-radius:10px;border-left:4px solid #3b6cff;">
+            <div style="font-family:var(--dk-mono);font-size:20px;font-weight:800;color:#3b6cff;min-width:40px">②</div>
+            <div><strong style="font-size:19px">資料清洗與處理</strong><p style="font-size:16px;opacity:.9;margin:3px 0 0">使用簡易匹配或 Pandas 進行數據清洗、時間對齊、缺失值處理</p></div>
+          </div>
+          <div style="display:flex;align-items:start;gap:14px;padding:10px 20px;background:#fff;border-radius:10px;border-left:4px solid #7a5cff;">
+            <div style="font-family:var(--dk-mono);font-size:20px;font-weight:800;color:#7a5cff;min-width:40px">③</div>
+            <div><strong style="font-size:19px">優化資料格式</strong><p style="font-size:16px;opacity:.9;margin:3px 0 0">按照呼叫的端點對資料進行專門的精簡優化，去除所有不必要的元素，讓 Agent 拿到乾淨易懂 Json 文本</p></div>
+          </div>
+          <div style="display:flex;align-items:start;gap:14px;padding:10px 20px;background:#fff;border-radius:10px;border-left:4px solid #e05c4f;">
+            <div style="font-family:var(--dk-mono);font-size:20px;font-weight:800;color:#e05c4f;min-width:40px">④</div>
+            <div><strong style="font-size:19px">透過 MCP 暴露給 Agent</strong><p style="font-size:16px;opacity:.9;margin:3px 0 0">將結果包裝成標準工具格式，AI Agent 呼叫就能拿到結果</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右側：FastAPI 路由設計 -->
+      <div style="flex: 1; min-width:0;">
+        <div class="tech-detail" style="margin:0; height:100%;">
+          <h4>⚡ FastAPI → MCP 橋接範例</h4>
+          <pre style="font-size:14px; line-height:1.5; padding:13px 15px;"># FastAPI 後端端點
+@app.post("/mixed_RMMA_singal")
+async def signal_test(req: symbolRequest):
+    """綜合信號分析 — RSI + MFI + MACD"""
+    signals = await signal_back.singals_RMMA_entry(
+        symbol=req.symbol
+    )
+    return signals
+
+# MCP Server 包裝層 (獨立 Python 腳本)
+def execute_tool(name, arguments):
+    if name == "get_analyze_RMMA_singal":
+        return requests.post(
+            f"{BACKEND_URL}/mixed_RMMA_singal",
+            json=arguments
+        ).json()</pre>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="dk-keyhint">pipeline</div>
+  <div class="dk-page">08</div>
+</section>
+  
+<!-- 8. 核心技術簡述 -->
+  <section class="slide t-white" data-title="核心技術">
+    <div class="dk-snum">09 / 18</div>
+    <div style="margin:auto 0">
+      <div class="dk-eyebrow">Tech Stack</div>
+      <h2 class="dk-h1">背後用了<br><span class="dk-accent">什麼技術</span>。</h2>
+      <div class="dk-grid-2" style="opacity:1">
+        <div class="dk-col">
+          <h3>Python 3.11 + FastAPI 0.115+</h3>
+          <p style="font-size:18px">高性能非同步框架，自動生成 API 文件<br>選型理由：原生 async、type hint 成熟、生態系完整</p>
+        </div>
+        <div class="dk-col">
+          <h3>Pandas TA 0.3.14p</h3>
+          <p style="font-size:18px">130+ 技術指標函式庫<br>選型理由：與 Pandas 無縫整合、MACD/RSI/MFI 還有更多常見指標一鍵計算</p>
+        </div>
+        <div class="dk-col">
+          <h3>MCP SDK 1.0+</h3>
+          <p style="font-size:18px">標準 MCP 通訊協定<br>選型理由：Anthropic 官方標準、即插即用</p>
+        </div>
+        <div class="dk-col">
+          <h3>Demo Mode</h3>
+          <p style="font-size:18px">demo模式可離線運行，調用時返回dummy資料<br>用於快速測試整體邏輯與功能</p>
+        </div>
+      </div>
+    </div>
+    <div class="dk-keyhint">tech</div>
+    <div class="dk-page">09</div>
+  </section>
+
+  
+<!-- 9. 多週期共振分析 -->
+<section class="slide t-indigo" data-title="多週期共振分析">
+  <div class="dk-snum">10 / 18</div>
+  <div style="margin:auto 0; width:100%;">
+    <div class="dk-eyebrow">Multi-Timeframe Analysis</div>
+    <h2 class="dk-h1">工具範例展示</h2>
+    
+    <p class="dk-lede" style="margin-top:8px; max-width:720px; font-size:20px; opacity:1">
+      這是一個基礎的量化分析算法，提供給 AI Agent 使用的其中一個指標。<br>
+      設計目的是讓 Agent 能同時「看」多個時間週期。
+    </p>
+
+    <!-- 左右分欄：左側卡片 + 說明，右側代碼 -->
+    <div style="margin-top:20px; display:flex; gap:24px; align-items:flex-start;">
+      
+      <!-- 左側：三層共振卡片 + 說明文字 -->
+      <div style="flex:1; max-width:440px;">
+        <!-- 三層共振卡片 -->
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;align-items:center;gap:10px;padding:5px 18px;background:rgba(26,175,108,.12);border-radius:10px;border-left:4px solid #1aaf6c;">
+            <div style="font-family:var(--dk-mono);font-size:20px;font-weight:800;color:#1aaf6c;min-width:50px">L1</div>
+            <div><strong style="font-size:18px">4H 大週期</strong><p style="font-size:16px;opacity:.85;margin:2px 0 0">定方向 — 判斷長期趨勢多空</p></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:5px 18px;background:rgba(59,108,255,.12);border-radius:10px;border-left:4px solid #3b6cff;">
+            <div style="font-family:var(--dk-mono);font-size:20px;font-weight:800;color:#3b6cff;min-width:50px">L2</div>
+            <div><strong style="font-size:18px">1H 中週期</strong><p style="font-size:16px;opacity:.85;margin:2px 0 0">定環境 — 觀察中期動能強弱</p></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:5px 18px;background:rgba(122,92,255,.12);border-radius:10px;border-left:4px solid #7a5cff;">
+            <div style="font-family:var(--dk-mono);font-size:20px;font-weight:800;color:#7a5cff;min-width:50px">L3</div>
+            <div><strong style="font-size:18px">30m 小週期</strong><p style="font-size:16px;opacity:.85;margin:2px 0 0">定點位 — 找出精確進出場時機</p></div>
+          </div>
+        </div>
+
+        <!-- 說明文字 -->
+        <div class="tech-detail" style="margin-top:16px; max-width:none;">
+          <h4>🤖 目的是讓 Agent「看懂」市場</h4>
+          <p style="font-size:16px; margin:6px 0 10px; opacity:1;">
+            我們把三層共振結果包裝成結構化輸出，讓 Agent 能直接透過工具理解市場狀態，而非直接塞入數千份的K線。
+          </p>
+        </div>
+      </div>
+
+      <!-- 右側：代碼區塊 -->
+      <div style="flex:1.1; max-width:700px;">
+        <div class="tech-detail" style="max-width:none; margin-top:0;">
+          <h4 style="margin-bottom:6px;">結構化輸出範例</h4>
+          <pre style="font-size:12px; line-height:1.4;">{
+  "symbol": "BTCUSDT",
+  "summary": {
+    "decision": "STRONG_SELL",
+    "score": -3,
+    "message": "❄️ 極強共振：空頭趨勢 + 頂部背離",
+    "action": "SELL"
+  },
+  "layers": {
+    "L1_Trend_4H": {
+      "direction": "bearish",
+      "price": 63040,
+      "ema200": 68066
+    },
+    "L2_Context_1H": {
+      "environment": "squeezing",
+      "bb_width": 0.017
+    },
+    "L3_Trigger_30m": {
+      "trend": "看多",
+      "support_zone": [62344, 62421],
+      "resistance_zone": [63286, 62994],
+      "latest_10_rsi": [53.1, 51.9, 50.9, 54.4, 54.5, 57.0, 50.2, 51.4, 62.7, 60.5],
+      "latest_10_mfi": [73.5, 76.3, 78.5, 77.5, 80.1, 80.5, 80.3, 85.8, 86.7, 78.6]
+    }
+  }
+}</pre>
+          <p style="font-size:12px; margin-top:8px; opacity:0.85;">
+            這是實際呼叫 <code>/mixed_RMMA_singal</code> 回傳的結構。Agent 會根據 L1 大週期方向、L2 環境狀態、L3 觸發訊號綜合判斷。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dk-keyhint">resonance</div>
+  <div class="dk-page">10</div>
+</section>
+
+
+  <section class="slide t-cream" data-title="AI Agent 互動範例">
+    <div class="dk-snum">11 / 18</div>
+    <div style="margin:auto 0">
+      <div class="dk-eyebrow">Agent Conversation</div>
+      <h2 class="dk-h1">AI Agent 會如何<br><span class="dk-accent">使用我們的工具</span>。</h2>
+
+      <!-- 並排布局：左邊對話 + 右邊 JSON -->
+      <div style="display: flex; gap: 32px; margin-top: 24px; align-items: flex-start;">
+        
+        <!-- 左側：聊天對話 -->
+        <div style="flex: 1; max-width: 420px;">
+          <div style="margin-bottom:12px;padding:12px 18px;background:rgba(59,108,255,.1);border-radius:12px 12px 12px 4px;border-left:3px solid #3b6cff;">
+            <strong style="font-size:13px;color:#3b6cff;">👤 使用者</strong>
+            <p style="font-size:14px;margin:4px 0 0;">幫我分析 BTC 技術面</p>
+          </div>
+          <div style="margin-bottom:12px;padding:12px 18px;background:rgba(122,92,255,.1);border-radius:12px 12px 4px 12px;border-right:3px solid #7a5cff;text-align:right;">
+            <strong style="font-size:13px;color:#7a5cff;">🤖 AI Agent</strong>
+            <p style="font-size:13px;margin:4px 0 0;">好的，先取得 BTC 基本資訊...</p>
+            <p style="font-size:12px;margin:2px 0 0;"><code>→ call get_symbol_info("BTCUSDT")</code></p>
+          </div>
+          <div style="margin-bottom:12px;padding:12px 18px;background:rgba(122,92,255,.1);border-radius:12px 12px 4px 12px;border-right:3px solid #7a5cff;text-align:right;">
+            <strong style="font-size:13px;color:#7a5cff;">🤖 AI Agent</strong>
+            <p style="font-size:13px;margin:4px 0 0;">現在進行多週期共振分析...</p>
+            <p style="font-size:12px;margin:2px 0 0;"><code>→ call get_analyze_RMMA_singal("BTCUSDT")</code></p>
+          </div>
+          <div style="margin-bottom:12px;padding:12px 18px;background:rgba(26,175,108,.08);border:1px dashed rgba(26,175,108,.3);align-self:center;text-align:center;max-width:95%;font-size:12px;opacity:.85;">
+            <p style="margin:0;">📊 收到結構化訊號: <strong>STRONG_SELL (score: -3)</strong></p>
+          </div>
+          <div style="padding:12px 18px;background:rgba(224,68,90,.1);border-radius:12px 12px 4px 12px;border-right:3px solid #e0445a;text-align:right;">
+            <strong style="font-size:13px;color:#e0445a;">🤖 AI Agent</strong>
+            <p style="font-size:13px;margin:4px 0 0;"><strong>結論: 極強做空訊號</strong></p>
+            <p style="font-size:12px;opacity:.7;margin:2px 0 0;">4H 空頭趨勢 + 1H 收縮 + 30m 短期反彈失敗</p>
+            <p style="font-size:12px;opacity:.7;margin:2px 0 0;">建議觀望或輕倉做空，支撐區 62344</p>
+          </div>
+        </div>
+
+        <!-- 右側：JSON 程式碼 -->
+        <div style="flex: 1; max-width: 780px;">
+          <div class="tech-detail" style="margin:0; height:100%;">
+            <h4>🔧 Agent 實際呼叫的 MCP 流程</h4>
+            <pre style="font-size:12px; line-height:1.5; white-space:pre-wrap; background:rgba(0,0,0,.03); padding:14px; border-radius:10px;">// Step 1: 取得幣別資訊
+{
+  "name": "get_symbol_info",
+  "arguments": { "symbol": "BTCUSDT" }
+}
+// ← 回傳: 合約規格、最小下單量、當前價格
+
+// Step 2: 多週期共振分析
+{
+  "name": "get_analyze_RMMA_singal",
+  "arguments": { "symbol": "BTCUSDT" }
+}
+// ← 回傳 (簡化):
+{
+  "summary": {
+    "decision": "STRONG_SELL",
+    "score": -3,
+    "action": "SELL"
+  },
+  "layers": {
+    "L1_4H": { "direction": "bearish" },
+    "L2_1H": { "environment": "squeezing" },
+    "L3_30m": { "trend": "看多", "support": 62344 }
+  }
+}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dk-keyhint">demo · chat</div>
+    <div class="dk-page">11</div>
+  </section>
+
+  <!-- 12. Demo 解讀 -->
+  <section class="slide t-indigo" data-title="Demo 解讀">
+    <div class="dk-snum">12 / 18</div>
+    <div style="margin:auto 0">
+      <div class="dk-eyebrow">Behind the Scenes</div>
+      <h2 class="dk-h1">請求的<br><span class="dk-accent">完整流程</span>。</h2>
+
+      <!-- 並排布局：左邊流程 + 右邊端點對應 -->
+      <div style="display: flex; gap: 32px; margin-top: 28px; align-items: flex-start;">
+        
+        <!-- 左側：流程圖 -->
+        <div style="flex: 1; max-width: 420px;">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+            <div style="padding:12px 24px;background:rgba(59,108,255,.15);border-radius:10px;text-align:center;font-weight:600;font-size:14px;">👤 使用者：「幫我分析 BTC」</div>
+            <div style="font-size:18px;opacity:.4">↓</div>
+            <div style="padding:12px 24px;background:rgba(122,92,255,.15);border-radius:10px;text-align:center;font-weight:600;font-size:14px;">🤖 Agent 理解意圖 → 選擇工具</div>
+            <div style="font-size:18px;opacity:.4">↓</div>
+            <div style="padding:12px 24px;background:rgba(122,92,255,.15);border-radius:10px;text-align:center;font-weight:600;font-size:14px;">🔧 MCP Server 接收 tools/call</div>
+            <div style="font-size:18px;opacity:.4">↓</div>
+            <div style="padding:12px 24px;background:rgba(59,108,255,.15);border-radius:10px;text-align:center;font-weight:600;font-size:14px;">⚡ FastAPI 處理 → 呼叫 Binance API</div>
+            <div style="font-size:18px;opacity:.4">↓</div>
+            <div style="padding:12px 24px;background:rgba(122,92,255,.15);border-radius:10px;text-align:center;font-weight:600;font-size:14px;">📐 Pandas TA 計算技術指標</div>
+            <div style="font-size:18px;opacity:.4">↓</div>
+            <div style="padding:12px 24px;background:rgba(26,175,108,.15);border-radius:10px;text-align:center;font-weight:600;font-size:14px;">📊 回傳結構化分析結果</div>
+            <div style="font-size:18px;opacity:.4">↓</div>
+            <div style="padding:12px 24px;background:rgba(26,175,108,.15);border-radius:10px;text-align:center;font-weight:600;font-size:14px;">🤖 Agent 解讀 → 給出交易建議</div>
+          </div>
+        </div>
+
+        <!-- 右側：實際端點對應 -->
+        <div style="flex: 1; max-width: 480px;">
+          <div class="tech-detail" style="margin:0; height:100%;">
+            <h4>🔌 FastAPI 端點 → MCP Tool 對應</h4>
+            <pre style="font-size:13px; line-height:1.6; white-space:pre-wrap; background:rgba(0,0,0,.03); padding:14px; border-radius:10px;">MCP Tool              → FastAPI Endpoint
+─────────────────────────────────────────
+get_symbol_info       → POST /get-symbol-info
+get_analyze_RMMA_singal → POST /mixed_RMMA_singal
+get_wallet_balance    → GET  /wallet-balance
+get_recommended_size  → POST /recommended-size
+place_market_order    → POST /order
+set_stop_loss         → POST /set-stop-loss
+
+// 每個端點都經過資料過濾與格式化
+// Agent 拿到的是乾淨的 JSON，不是原始 API 回應</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dk-keyhint">demo · flow</div>
+    <div class="dk-page">12</div>
+  </section>
+
+  
+<!-- 15. 未來展望 -->
+  <section class="slide t-emerald" data-title="未來展望">
+    <div class="dk-snum">13 / 18</div>
+    <div style="margin:auto 0">
+      <div class="dk-eyebrow">What's Next</div>
+      <h2 class="dk-h1">接下來<br><span class="dk-accent">還能做什麼</span>。</h2>
+      <ul class="dk-list">
+        <li style="font-size:24px">支援更多交易所（OKX、Bybit...）</li>
+        <li style="font-size:24px">加入更多技術指標與自訂策略</li>
+        <li style="font-size:24px">整合更多 MCP 插件（新聞情緒、社群監控）</li>
+        <li style="font-size:24px">回測功能，記錄下交易對</li>
+        <li style="font-size:24px">將 MCP Server 轉為可對任何用戶提供的公開服務 (讓用戶帶上自己的key)</li>
+      </ul>
+    </div>
+    <div class="dk-keyhint">future</div>
+    <div class="dk-page">13</div>
+  </section>
+
+    <!-- 10. Demo 預告 -->
+  <section class="slide t-slate" data-title="Demo 預告">
+    <div class="dk-snum">14 / 18</div>
+    <div style="margin:auto 0">
+      <div class="dk-eyebrow">Demo Preview</div>
+      <h2 class="dk-h1">接下來展示<br><span class="dk-accent">三個功能</span>。</h2>
+      <span class="dk-line"></span>
+      <div style="margin-top:28px;display:flex;flex-direction:column;gap:14px;max-width:700px;">
+        <div style="display:flex;align-items:center;gap:16px;padding:18px 22px;background:rgb(255, 255, 255);border-radius:12px;border-left:4px solid #3b6cff;">
+          <div style="font-size:28px;flex-shrink:0">①</div>
+          <div><strong style="font-size:20px">技術面分析</strong><p style="font-size:18px;opacity:.85;margin:4px 0 0">AI Agent 透過 MCP 呼叫 get_analyze_RMMA_singal，取得多週期共振評分，查看 Agent 對這組評分有甚麼見解</p></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px;padding:18px 22px;background:rgb(255, 255, 255);border-radius:12px;border-left:4px solid #7a5cff;">
+          <div style="font-size:28px;flex-shrink:0">②</div>
+          <div><strong style="font-size:20px">高自主性</strong><p style="font-size:18px;opacity:.85;margin:4px 0 0">指示 Agent 進行下單，同時設定止盈與止損， Agent 將使用配套的工具自行決策應該使用多少金額，止損點，槓桿大小</p></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px;padding:18px 22px;background:rgb(255, 255, 255);border-radius:12px;border-left:4px solid #1aaf6c;">
+          <div style="font-size:28px;flex-shrink:0">③</div>
+          <div><strong style="font-size:20px">倉位分析</strong><p style="font-size:18px;opacity:.85;margin:4px 0 0">指示 Agent 查看持有的倉位，看他會給出什麼樣的建議</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="dk-page">14</div>
+  </section>
+
+    <!-- 11. 實機演示過渡頁 -->
+  <section class="slide t-cream" data-title="切換到實機演示">
+    <div class="dk-snum">15 / 18</div>
+    <div style="margin:auto 0;text-align:center;">
+      <h2 class="dk-h1" style="font-size:48px;">⚡ 實機演示 ⚡</h2>
+      <p style="margin-top:32px;font-size:24px;opacity:.95;">
+        1. 展示DEMO環境的端點互動
+      </p>
+      <p style="margin-top:32px;font-size:24px;opacity:.95;">
+        2. 展示一個投入生產環境的 AI Agent
+      </p>
+    </div>
+    <div class="dk-keyhint">demo · live</div>
+    <div class="dk-page">15</div>
+  </section>
+
+  
+<!-- 16. 總結 -->
+  <section class="slide t-violet" data-title="總結">
+    <div class="dk-snum">16 / 18</div>
+    <div style="margin:auto 0">
+      <div class="dk-eyebrow">Summary</div>
+      <h2 class="dk-h1">今天帶<br><span class="dk-accent">走了什麼</span>。</h2>
+      <div style="margin-top:24px;max-width:700px;">
+        <div style="padding:16px 20px;background:rgba(255,255,255,.08);border-radius:10px;margin-bottom:6px;">
+          <strong style="font-size:24px;">1. AI Agent</strong> <span style="font-size:20px;opacity:.85;">— 不只是聊天，還能執行任務</span>
+        </div>
+        <div style="padding:16px 20px;background:rgba(255,255,255,.08);border-radius:10px;margin-bottom:6px;">
+          <strong style="font-size:24px;">2. MCP</strong> <span style="font-size:20px;opacity:.85;">— AI 的通用插頭，一次開發、所有 AI 都能用</span>
+        </div>
+        <div style="padding:16px 20px;background:rgba(255,255,255,.08);border-radius:10px;margin-bottom:6px;">
+          <strong style="font-size:24px;">3. 我們的插件</strong> <span style="font-size:20px;opacity:.85;">— 把交易分析打包成 AI 能直接呼叫的工具</span>
+        </div>
+        <div style="padding:16px 20px;background:rgba(255,255,255,.08);border-radius:10px;">
+          <strong style="font-size:24px;">4. 完整流程</strong> <span style="font-size:20px;opacity:.85;">— API 接資料 → 處理 → MCP 暴露 → Agent 使用</span>
+        </div>
+      </div>
+    </div>
+    <div class="dk-keyhint">summary</div>
+    <div class="dk-page">16</div>
+  </section>
+
+  
+<!-- 17. 感謝 -->
+  <section class="slide t-indigo" data-title="感謝聆聽">
+    <div class="dk-snum">17 / 18</div>
+    <div style="margin:auto 0">
+      <h1 class="dk-h0">感謝<span class="dk-accent">聆聽</span></h1>
+      <span class="dk-line"></span>
+      <p class="dk-lede">Q & A</p>
+      <p style="margin-top:30px;font-size:26px;">GitHub</p>
+      <p style="margin-top:1px;font-size:20px;opacity:.85;">github.com/uraniumchonk/trading-demo-report</p>
+      <p style="margin-top:24px;font-size:20px;opacity:.85;"></p>
+      <p style="margin-top:30px;font-size:26px;">html簡報</p>
+      <p style="margin-top:1px;font-size:20px;opacity:.85;">github.com/alchaincyf/huashu-design</p>
+    </div>
+    <div class="dk-keyhint">17</div>
+    <div class="dk-page">17</div>
+  </section>
+
+<!-- 18. 備用結束頁 -->
+  <section class="slide t-indigo" data-title="結束">
+    <div class="dk-snum">18 / 18</div>
+    <div style="margin:auto 0;text-align:center;">
+      <h1 class="dk-h0">END</h1>
+    </div>
+    <div class="dk-keyhint">end</div>
+    <div class="dk-page">18</div>
+  </section>
+
+</div>
+<script>
+/* html-ppt :: runtime.js */
+document.addEventListener('DOMContentLoaded', () => {
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  let current = 0;
+  const total = slides.length;
+  function goTo(n) {
+    slides[current].classList.remove('is-active','is-prev');
+    current = ((n % total) + total) % total;
+    slides[current].classList.add('is-active');
+    slides.forEach((s,i) => { if(i !== current) s.classList.remove('is-prev'); });
+  }
+  document.addEventListener('keydown', e => {
+    if(e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); goTo(current+1); }
+    if(e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); goTo(current-1); }
+    if(e.key === 'Home') { e.preventDefault(); goTo(0); }
+    if(e.key === 'End') { e.preventDefault(); goTo(total-1); }
+    if(e.key === 'f' || e.key === 'F') { if(!document.fullscreenElement) document.documentElement.requestFullscreen(); else document.exitFullscreen(); }
+  });
+});
+</script>
+</body>
+</html>

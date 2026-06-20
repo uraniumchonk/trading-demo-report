@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Binance Futures API Demo</title>
+<style>
+:root{--bg:#0d1117;--card:#161b22;--border:#30363d;--text:#c9d1d9;--text2:#8b949e;--blue:#58a6ff;--green:#3fb950;--red:#f85149;--orange:#d29922;--purple:#bc8cff;--pink:#f778ba}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);padding:20px;max-width:960px;margin:0 auto}
+h1{color:var(--blue);margin-bottom:8px;font-size:24px}
+.subtitle{color:var(--text2);margin-bottom:24px;font-size:14px}
+.group{margin-bottom:32px}
+.group-title{font-size:18px;font-weight:700;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:8px}
+.group-title span{font-size:18px}
+.endpoint{background:var(--card);border:1px solid var(--border);border-radius:8px;margin-bottom:12px;overflow:hidden}
+.ep-header{display:flex;align-items:center;padding:12px 16px;cursor:pointer;gap:12px;transition:background .15s}
+.ep-header:hover{background:#1c2129}
+.method{font-weight:700;font-size:12px;padding:3px 8px;border-radius:4px;min-width:56px;text-align:center;text-transform:uppercase}
+.method.get{background:#0d2d1a;color:var(--green);border:1px solid var(--green)}
+.method.post{background:#2a1a0a;color:var(--orange);border:1px solid var(--orange)}
+.ep-path{font-family:monospace;font-size:14px;color:var(--text)}
+.ep-summary{color:var(--text2);font-size:13px;margin-left:auto}
+.ep-body{display:none;padding:0 16px 16px}
+.ep-body.open{display:block}
+.form-row{display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap;align-items:end}
+.field{display:flex;flex-direction:column;gap:4px;flex:1;min-width:120px}
+.field label{font-size:12px;color:var(--text2)}
+.field input,.field select{background:#0d1117;border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:6px;font-size:13px;outline:none}
+.field input:focus,.field select:focus{border-color:var(--blue)}
+.btn{padding:8px 16px;border:none;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;transition:opacity .15s}
+.btn:hover{opacity:.85}
+.btn-run{background:var(--green);color:#fff}
+.btn-clear{background:var(--border);color:var(--text)}
+.presets{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.preset{padding:4px 10px;background:#1c2129;border:1px solid var(--border);border-radius:4px;color:var(--text2);font-size:12px;cursor:pointer;transition:all .15s}
+.preset:hover{border-color:var(--blue);color:var(--blue)}
+.result{margin-top:12px;background:#0d1117;border:1px solid var(--border);border-radius:6px;max-height:300px;overflow:auto}
+.result pre{padding:12px;font-size:12px;font-family:monospace;white-space:pre-wrap;word-break:break-all}
+.result.loading{border-color:var(--blue)}
+.result.error{border-color:var(--red)}
+.result.success{border-color:var(--green)}
+</style>
+</head>
+<body>
+<h1>Binance Futures API Demo</h1>
+<p class="subtitle">API Base: <code>http://127.0.0.1:8069</code> — DEMO端點驗證測試用 資料為預先準備的dummy data</p>
+
+<!-- ====== 錢包與查詢 ====== -->
+<div class="group">
+<div class="group-title"><span>💰</span> 錢包與查詢</div>
+
+<div class="endpoint">
+<div class="ep-header" onclick="toggle(this)">
+<div class="method get">GET</div>
+<div class="ep-path">/wallet-balance</div>
+<div class="ep-summary">取得錢包餘額</div>
+</div>
+<div class="ep-body">
+<div class="presets"></div>
+<div class="form-row">
+<button class="btn btn-run" onclick="callApi('GET','/wallet-balance',null,this)">執行</button>
+</div>
+<div class="result"><pre>等待執行...</pre></div>
+</div>
+</div>
+
+<div class="endpoint">
+<div class="ep-header" onclick="toggle(this)">
+<div class="method get">GET</div>
+<div class="ep-path">/orders</div>
+<div class="ep-summary">取得訂單列表</div>
+</div>
+<div class="ep-body">
+<div class="form-row">
+<button class="btn btn-run" onclick="callApi('GET','/orders',null,this)">執行</button>
+</div>
+<div class="result"><pre>等待執行...</pre></div>
+</div>
+</div>
+
+<div class="endpoint">
+<div class="ep-header" onclick="toggle(this)">
+<div class="method get">GET</div>
+<div class="ep-path">/pending-orders</div>
+<div class="ep-summary">取得掛單列表</div>
+</div>
+<div class="ep-body">
+<div class="form-row">
+<button class="btn btn-run" onclick="callApi('GET','/pending-orders',null,this)">執行</button>
+</div>
+<div class="result"><pre>等待執行...</pre></div>
+</div>
+</div>
+
+<div class="endpoint">
+<div class="ep-header" onclick="toggle(this)">
+<div class="method get">GET</div>
+<div class="ep-path">/get_available_times</div>
+<div class="ep-summary">可用時間框架</div>
+</div>
+<div class="ep-body">
+<div class="form-row">
+<button class="btn btn-run" onclick="callApi('GET','/get_available_times',null,this)">執行</button>
+</div>
+<div class="result"><pre>等待執行...</pre></div>
+</div>
+</div>
+
+<div class="endpoint">
+<div class="ep-header" onclick="toggle(this)">
+<div class="method get">GET</div>
+<div class="ep-path">/</div>
+<div class="ep-summary">Root 健康檢查</div>
+</div>
+<div class="ep-body">
+<div class="form-row">
+<button class="btn btn-run" onclick="callApi('GET','/',null,this)">執行</button>
+</div>
+<div class="result"><pre>等待執行...</pre></div>
+</div>
+</div>
+</div>
+
+<!-- ====== 倉位管理 ====== -->
+<div class="group">
+<div class="group-title"><span>📊</span> 倉位管理</div>
+
+<div class="endpoint">
+<div class="ep-header" onclick="toggle(this)">
+<div class="method post">POST</div>
+<div class="ep-path">/positions</div>
+<div class="ep-summary">取得倉位資訊</div>
+</div>
+<div class="ep-body">
+<div class="presets">
+<div class="preset" onclick="fill(this,{symbol:'BTCUSDT',ezmode:true})">BTC</div>
+<div class="preset" onclick="fill(this,{symbol:'ETHUSDT',ezmode:true})">ETH</div>
+<div class="preset" onclick="fill(this,{symbol:'SOLUSDT',ezmode:true})">SOL</div>
+<div class="preset" onclick="fill(this,{symbol:'XRPUSDT',ezmode:true})">XRP</div>
+</div>
+<div class="form-row">
+<div class="field"><label>Symbol</label><input id="sym_positions" value="BTCUSDT"></div>
+<div class="field" style="flex:0"><label>EzMode</label><select id="ez_positions"><option value="true">true</option><option value="false">false</option></select></div>
+<button class="btn btn-run" onclick="callApi('POST','/positions',build(['sym_positions','ez_positions']),this)">執行</button>
+</div>
+<div class="result"><pre>等待執行...</pre></div>
+</div>
+</div>
+
+<div class="endpoint">
+<div class="ep-header" onclick="toggle(this)">
+<div class="method post">POST</div>
+<div class="ep-path">/sync-positions</div>
+<div class="ep-summary">同步 Binance 真實倉位</div>
+</div>
+<div class="ep-body">
+<div class="form-row">
+<button class="btn btn-run" onclick="callApi('POST','/sync-positions',null,this)">執行</button>
+</div>
+<div class="result"><pre>等待執行...</pre></div>
+</div>
+</div>
+
+<div class="endpoint">
+<div class="ep-header" onclick="toggle(this)">
+<div class="method post">POST</div>
+<div class="ep-path">/close-position</div>
+<div class="ep-summary">平倉</div>
+</div>
+<div class="ep-body">
+<div class="presets">
+<div class="preset" onclick="fill(this,{symbol:'BTCUSDT'})">BTC</div>
+<div class="preset" onclick="fill(this,{symbol:'ETHUSDT'})">ETH</div>
+<div class="preset" onclick="fill(this,{symbol:'SOLUSDT'})">SOL</div>
+</div>
+<div class="form-row">
+<div class="field"><label>Symbol</label><input id="sym_close" value="BTCUSDT"></div>
+<button class="btn btn-run" onclick="callApi('POST','/close-position',build(['sym_close']),this)">執行</button>
+</div>
+<div class="result"><pre>等待執行...</pre></div>
+</div>
+</div>
+</div>
+
+<!-- ====== 下單 ====== -->
+<div class="group">
+<div class="group-title"><span>⚡</span> 下單</div>
+
+<div class="endpoint">
+<div class="ep-header" onclick="toggle(this)">
+<div class="method post">POST</div>
+<div class="ep-path">/order</div>
+<div class="ep-summary">市價下單</div>
+</div>
+<div class="ep-body">
+<div class="presets">
+<div class="preset" onclick="fill(this,{symbol:'BTCUSDT',side:'BUY',usdt_amount:100,leverage:10})">BTC買100U</div>
+<div class="preset" onclick="fill(this,{symbol:'BTCUSDT',side:'SELL',usdt_amount:100,leverage:10})">BTC賣100U</div>
+<div class="preset" onclick="fill(this,{symbol:'ETHUSDT',side:'BUY',usdt_amount:50,leverage:10})">ETH買50U</div>
+</div>
+<div class="form-row">
+<div class="field"><label>Symbol</label><input id="sym_order" value="BTCUSDT"></div>
+<div class="field"><label>Side</label><select id="side_order"><option>BUY</option><option>SELL</option></select></div>
+<div class="field"><label>USDT Amount</label><input id="amt_order" type="number" value="100"></div>
+<div class="field"><label>Leverage</label><input id="lev_order" type="number" value="10"></div>
+</div>
+<div class="form-row">
+<div class="field"><label>Stop Loss</label><input id="sl_order" type="number" placeholder="可選"></div>
+<div class="field"><label>Take Profit</label><input id="tp_order" type="number" placeholder="可選"></div>
+</div>
+<div class="form-row">
+<button class="btn btn-run" onclick="callApi('POST','/order',build(['sym_order','side_order','amt_order','lev_order','sl_order','tp_order']),this)">執行</button>
+</div>
+<div class="result"><pre>等待執行...</pre></div>
+</div>
+</div>
+
+<div class="endpoint">
+<div class="ep-header" onclick="toggle(this)">
+<div class="method post">POST</div>
+<div class="ep-path">/place-limit</div>
+<div class="ep-summary">限价掛單</div>
+</div>
+<div class="ep-body">
+<div class="presets">
+<div class="preset" onclick="fill(this,{symbol:'BTCUSDT',side:'BUY',price:90000,usdt_amount:100})">BTC買90k</div>
+<div class="preset" onclick="fill(this,{symbol:'BTCUSDT',side:'SELL',price:110000,usdt_amount:100})">BTC賣110k</div>
+</div>
+<div class="form-row">
+<div class="field"><label>Symbol</label><input id="sym_limit" value="BTCUSDT"></div>
+<div class="field"><label>Side</label><select id="side_limit"><option>BUY</option><option>SELL</option></select></div>
+<div class="field"><label>Price</label><input id="prc_limit" type="number" placeholder="可選"></div>
+<div class="field"><label>USDT Amount</label><input id="amt_limit" type="number" placeholder="可選"></div>
+</div>
+<div class="form-row">
+<div class="field"><label>Stop Loss</label><input id="sl_limit" type="number" placeholder="可選"></div>
+<div class="field"><label>Take Profit</label><input id="tp_limit" type="number" placeholder="可選"></div>
+</div>
+<div class="form-row">
+<button class="btn btn-run" onclick="callApi('POST','/place-limit',build(['sym_limit','side_limit','prc_limit','amt_limit','sl_limit','tp_limit']),this)">執行</button>
+</div>
+<div class="result"><pre>等待執行...</pre></div>
+</div>
+</div>
+
+<div class="endpoint">
+<div class="ep-header" onclick="toggle(this)">
+<div class="method post">POST</div>
+<div class="ep-path">/cancel-order</div>
+<div class="ep-summary">取消掛單</div>
+</div>
+<div class="ep-body">
+<div class="presets">
+<div class="preset" onclick="fill(this,{symbol:'BTCUSDT'})">BTC</div>
+<div class="preset" onclick="fill(this,{symbol:'ETHUSDT'})">ETH</div>
+</div>
+<div class="form-row">
+<div class="field"><label>Symbol</label><input id="sym_cancel" value="BTCUSDT"></div>
+<button class="btn btn-run" onclick="callApi('POST','/cancel-order',build(['sym_cancel']),this)">執行</button>
+</div>
+<div class="result"><pre>等待執行...</pre></div>
+</div>
+</div>
+</div>
+
+<!-- ====== 止損管理 ====== -->
+<div class="group">
+<div class="group-title"><span>🛡️</span> 止損管理</div>
+
+<div class="endpoint">
+<div class="ep-header" onclick="toggle(this)">
+<div class="method post">POST</div>
+<div class="ep-path">/set-stop-loss</div>
+<div class="ep-summary">設定止損</div>
+</div>
+<div class="ep-body">
+<div class="presets">
+<div class="preset" onclick="fill(this,{symbol:'BTCUSDT',percentage:2})">BTC 2%</div>
+<div class="preset" onclick="fill(this,{symbol:'BTCUSDT',percentage:5})">BTC 5%</div>
+<div class="preset" onclick="fill(this,{symbol:'ETHUSDT',percentage:3})">ETH 3%</div>
+</div>
+<div class="form-row">
+<div class="field"><label>Symbol</label><input id="sym_sl" value="BTCUSDT"></div>
+<div class="field"><label>Stop Price</label><input id="sp_sl" type="number" placeholder="可選"></div>
+<div class="field"><label>Percentage %</label><input id="pct_sl" type="number" placeholder="可選" value="2"></div>
+</div>
+<div class="form-row">
+<button class="btn btn-run" onclick="callApi('POST','/set-stop-loss',build(['sym_sl','sp_sl','pct_sl']),this)">執行</button>
+</div>
+<div class="result"><pre>等待執行...</pre></div>
+</div>
+</div>
+
+<div class="endpoint">
+<div class="ep-header" onclick="toggle(this)">
+<div class="method post">POST</div>
+<div class="ep-path">/grab-stop-losses</div>
+<div class="ep-summary">取得止損列表</div>
+</div>
+<div class="ep-body">
+<div class="presets">
+<div class="preset" onclick="fill(this,{symbol:'BTCUSDT',ezmode:true})">BTC</div>
+<div class="preset" onclick="fill(this,{symbol:'ETHUSDT',ezmode:true})">ETH</div>
+</div>
+<div class="form-row">
+<div class="field"><label>Symbol</label><input id="sym_gsl" value="BTCUSDT"></div>
+<div class="field" style="flex:0"><label>EzMode</label><select id="ez_gsl"><option value="true">true</option><option value="false">false</option></select></div>
+<button class="btn btn-run" onclick="callApi('POST','/grab-stop-losses',build(['sym_gsl','ez_gsl']),this)">執行</button>
+</div>
+<div class="result"><pre>等待執行...</pre></div>
+</div>
+</div>
+</div>
+
+<!-- ====== 工具計算 ====== -->
+<div class="group">
+<div class="group-title"><span>🧮</span> 工具計算</div>
+
+<div class="endpoint">
+<div class="ep-header" onclick="toggle(this)">
+<div class="method post">POST</div>
+<div class="ep-path">/recommended-size</div>
+<div class="ep-summary">推薦倉位大小</div>
+</div>
+<div class="ep-body">
+<div class="presets">
+<div class="preset" onclick="fill(this,{leverage:5})">5x</div>
+<div class="preset" onclick="fill(this,{leverage:10})">10x</div>
+<div class="preset" onclick="fill(this,{leverage:20})">20x</div>
+<div class="preset" onclick="fill(this,{leverage:50})">50x</div>
+</div>
+<div class="form-row">
+<div class="field"><label>Leverage</label><input id="lev_rec" type="number" value="10"></div>
+<button class="btn btn-run" onclick="callApi('POST','/recommended-size',build(['lev_rec']),this)">執行</button>
+</div>
+<div class="result"><pre>等待執行...</pre></div>
+</div>
+</div>
+
+<div class="endpoint">
+<div class="ep-header" onclick="toggle(this)">
+<div class="method post">POST</div>
+<div class="ep-path">/calculate-sl-by-leverage</div>
+<div class="ep-summary">根據槓桿計算止損點位</div>
+</div>
+<div class="ep-body">
+<div class="presets">
+<div class="preset" onclick="fill(this,{leverage:10,entry_price:100000})">10x @100k</div>
+<div class="preset" onclick="fill(this,{leverage:20,entry_price:100000})">20x @100k</div>
+<div class="preset" onclick="fill(this,{leverage:10,entry_price:3500})">10x ETH@3500</div>
+</div>
+<div class="form-row">
+<div class="field"><label>Leverage</label><input id="lev_calc" type="number" value="10"></div>
+<div class="field"><label>Entry Price</label><input id="ent_calc" type="number" value="100000"></div>
+<button class="btn btn-run" onclick="callApi('POST','/calculate-sl-by-leverage',build(['lev_calc','ent_calc']),this)">執行</button>
+</div>
+<div class="result"><pre>等待執行...</pre></div>
+</div>
+</div>
+
+<div class="endpoint">
+<div class="ep-header" onclick="toggle(this)">
+<div class="method post">POST</div>
+<div class="ep-path">/get-symbol-info</div>
+<div class="ep-summary">交易對資訊</div>
+</div>
+<div class="ep-body">
+<div class="presets">
+<div class="preset" onclick="fill(this,{symbol:'BTCUSDT'})">BTC</div>
+<div class="preset" onclick="fill(this,{symbol:'ETHUSDT'})">ETH</div>
+<div class="preset" onclick="fill(this,{symbol:'SOLUSDT'})">SOL</div>
+</div>
+<div class="form-row">
+<div class="field"><label>Symbol</label><input id="sym_info" value="BTCUSDT"></div>
+<button class="btn btn-run" onclick="callApi('POST','/get-symbol-info',build(['sym_info']),this)">執行</button>
+</div>
+<div class="result"><pre>等待執行...</pre></div>
+</div>
+</div>
+</div>
+
+<!-- ====== 信號分析 ====== -->
+<div class="group">
+<div class="group-title"><span>📈</span> 信號分析</div>
+
+<div class="endpoint">
+<div class="ep-header" onclick="toggle(this)">
+<div class="method post">POST</div>
+<div class="ep-path">/mixed_RMMA_singal</div>
+<div class="ep-summary">RSI+MFI+MACD+回歸綜合信號</div>
+</div>
+<div class="ep-body">
+<div class="presets">
+<div class="preset" onclick="fill(this,{symbol:'BTCUSDT'})">BTC</div>
+<div class="preset" onclick="fill(this,{symbol:'ETHUSDT'})">ETH</div>
+<div class="preset" onclick="fill(this,{symbol:'SOLUSDT'})">SOL</div>
+<div class="preset" onclick="fill(this,{symbol:'XRPUSDT'})">XRP</div>
+</div>
+<div class="form-row">
+<div class="field"><label>Symbol</label><input id="sym_rm" value="BTCUSDT"></div>
+<button class="btn btn-run" onclick="callApi('POST','/mixed_RMMA_singal',build(['sym_rm']),this)">執行</button>
+</div>
+<div class="result"><pre>等待執行...</pre></div>
+</div>
+</div>
+
+
+<div class="endpoint">
+<div class="ep-header" onclick="toggle(this)">
+<div class="method post">POST</div>
+<div class="ep-path">/coinglass_test</div>
+<div class="ep-summary">CoinGlass API 連線測試</div>
+</div>
+<div class="ep-body">
+<div class="presets">
+<div class="preset" onclick="fill(this,{symbol:'BTCUSDT'})">BTC</div>
+<div class="preset" onclick="fill(this,{symbol:'ETHUSDT'})">ETH</div>
+</div>
+<div class="form-row">
+<div class="field"><label>Symbol</label><input id="sym_cg" value="BTCUSDT"></div>
+<button class="btn btn-run" onclick="callApi('POST','/coinglass_test',build(['sym_cg']),this)">執行</button>
+</div>
+<div class="result"><pre>等待執行...</pre></div>
+</div>
+</div>
+
+<div class="endpoint">
+<div class="ep-header" onclick="toggle(this)">
+<div class="method post">POST</div>
+<div class="ep-path">/singal_test</div>
+<div class="ep-summary">SignalGenerator 測試</div>
+</div>
+<div class="ep-body">
+<div class="presets">
+<div class="preset" onclick="fill(this,{symbol:'BTCUSDT'})">BTC</div>
+<div class="preset" onclick="fill(this,{symbol:'ETHUSDT'})">ETH</div>
+</div>
+<div class="form-row">
+<div class="field"><label>Symbol</label><input id="sym_st" value="BTCUSDT"></div>
+<button class="btn btn-run" onclick="callApi('POST','/singal_test',build(['sym_st']),this)">執行</button>
+</div>
+<div class="result"><pre>等待執行...</pre></div>
+</div>
+</div>
+</div>
+<script>
+const BASE='http://127.0.0.1:8069';
+function toggle(h){h.nextElementSibling.classList.toggle('open')}
+function build(ids){
+  const body={};
+  for(const id of ids){
+    const el=document.getElementById(id);
+    if(!el)continue;
+    let v=el.value;
+    if(!v||v==='')continue;
+    if(el.tagName==='SELECT'){
+      body[id]=v==='true'?true:v==='false'?false:v;
+    }else if(el.type==='number'){
+      body[id]=parseFloat(v);
+    }else{
+      body[id]=v;
+    }
+  }
+  const map={sym_positions:'symbol',ez_positions:'ezmode',sym_close:'symbol',sym_cancel:'symbol',
+    sym_order:'symbol',side_order:'side',amt_order:'usdt_amount',lev_order:'leverage',sl_order:'stop_loss',tp_order:'take_profit',
+    sym_limit:'symbol',side_limit:'side',prc_limit:'price',amt_limit:'usdt_amount',sl_limit:'stop_loss',tp_limit:'take_profit',
+    sym_sl:'symbol',sp_sl:'stop_price',pct_sl:'percentage',sym_gsl:'symbol',ez_gsl:'ezmode',
+    lev_rec:'leverage',lev_calc:'leverage',ent_calc:'entry_price',sym_info:'symbol',
+    sym_rm:'symbol',sym_an:'symbol',tm_an:'time_sacle',ez_an:'ezmode',sym_cross:'symbol',
+    sym_cg:'symbol',sym_st:'symbol'};
+  const result={};
+  for(const[k,v]of Object.entries(body)){if(map[k])result[map[k]]=v;else result[k]=v;}
+  return result;
+}
+function fill(btn,obj){
+  const body=btn.closest('.ep-body');
+  const fields=body.querySelectorAll('.field');
+  for(const field of fields){
+    const lbl=field.querySelector('label').textContent.toLowerCase();
+    const inp=field.querySelector('input,select');
+    if(!inp)continue;
+    for(const[k,v]of Object.entries(obj)){
+      const km=k.toLowerCase();
+      if(lbl.includes(km.substring(0,3))||km.includes(lbl.replace(/[^a-z]/g,''))){
+        inp.value=v;
+      }
+    }
+  }
+}
+async function callApi(method,path,bodyData,btn){
+  const body=btn.closest('.ep-body');
+  const resDiv=body.querySelector('.result');
+  const pre=resDiv.querySelector('pre');
+  resDiv.className='result loading';
+  pre.textContent='⏳ 呼叫中...';
+  try{
+    const opts={method,headers:{'Content-Type':'application/json'}};
+    if(bodyData)opts.body=JSON.stringify(bodyData);
+    const resp=await fetch(BASE+path,opts);
+    const data=await resp.json();
+    resDiv.className='result success';
+    pre.textContent=JSON.stringify(data,null,2);
+  }catch(e){
+    resDiv.className='result error';
+    pre.textContent='❌ 錯誤: '+e.message;
+  }
+}
+</script>
+</body>
+</html>

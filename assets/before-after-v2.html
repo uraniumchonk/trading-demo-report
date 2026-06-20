@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Before/After 對比</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Inter','Noto Sans SC',sans-serif;
+  background:#f8f9fa;
+  display:flex;justify-content:center;align-items:center;
+  min-height:100vh;padding:40px;
+}
+.container{
+  max-width:950px;width:100%;
+  background:#fff;border-radius:20px;
+  box-shadow:0 8px 32px rgba(0,0,0,.06),0 2px 8px rgba(0,0,0,.04);
+  padding:40px 44px;
+}
+.title{
+  text-align:center;font-size:28px;font-weight:800;
+  letter-spacing:-.5px;margin-bottom:32px;
+  display:flex;align-items:center;justify-content:center;gap:16px;
+}
+.title-line{
+  flex:1;max-width:100px;height:2px;
+  background:linear-gradient(90deg,transparent,#ddd);
+}
+.title-line:last-child{background:linear-gradient(90deg,#ddd,transparent)}
+.comparison{
+  display:flex;gap:0;align-items:stretch;
+  border-radius:16px;overflow:hidden;
+}
+.panel{
+  flex:1;padding:32px 28px;
+  display:flex;flex-direction:column;
+}
+.panel-before{
+  background:#fef2f2;
+  border-right:1px solid #fecaca;
+}
+.panel-after{
+  background:#f0fdf4;
+}
+.panel-header{
+  text-align:center;margin-bottom:24px;
+}
+.panel-header h3{
+  font-size:20px;font-weight:800;letter-spacing:2px;
+}
+.panel-before .panel-header h3{color:#dc2626}
+.panel-after .panel-header h3{color:#16a34a}
+.panel-header .sub{
+  font-size:13px;opacity:.6;font-weight:400;
+  margin-top:4px;
+}
+/* LLM box */
+.llm-box{
+  background:#eff6ff;border:2px solid #93c5fd;
+  border-radius:12px;padding:16px;text-align:center;
+  margin-bottom:16px;
+}
+.llm-box .name{font-size:18px;font-weight:800;color:#1e40af}
+.llm-box .desc{font-size:12px;opacity:.6;margin-top:2px}
+/* Arrow connector */
+.arrow-down{
+  display:flex;flex-direction:column;align-items:center;
+  margin:4px 0;color:#9ca3af;font-size:13px;
+}
+.arrow-down .line{width:2px;height:16px;background:#9ca3af}
+.arrow-down .head{font-size:10px;line-height:1}
+.arrow-down .label{font-size:11px;margin-top:4px;opacity:.7}
+/* Middle box - the problem / solution */
+.middle-box{
+  border-radius:10px;padding:14px 16px;margin-bottom:12px;
+  font-size:13px;line-height:1.6;
+}
+.middle-box.bad{
+  background:#fff1f1;border:1.5px solid #fca5a5;
+}
+.middle-box.bad ul{list-style:none;padding:0;margin-top:6px}
+.middle-box.bad li{
+  padding:4px 0 4px 20px;
+  position:relative;font-size:12px;color:#991b1b;
+}
+.middle-box.bad li::before{
+  content:'✗';position:absolute;left:0;color:#dc2626;font-weight:700;
+}
+.middle-box.good{
+  background:#ecfdf5;border:1.5px solid #86efac;
+}
+.middle-box.good ul{list-style:none;padding:0;margin-top:6px}
+.middle-box.good li{
+  padding:4px 0 4px 20px;
+  position:relative;font-size:12px;color:#166534;
+}
+.middle-box.good li::before{
+  content:'✓';position:absolute;left:0;color:#16a34a;font-weight:700;
+}
+/* Bridge in center */
+.bridge-section{
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:center;padding:0 6px;position:relative;
+  min-width:70px;
+}
+.bridge-oval{
+  background:#ecfdf5;border:2.5px solid #22c55e;
+  border-radius:40px;padding:10px 14px;
+  text-align:center;font-weight:700;font-size:13px;color:#15803d;
+  white-space:nowrap;letter-spacing:1px;
+  box-shadow:0 2px 8px rgba(34,197,94,.15);
+  position:relative;z-index:2;
+}
+.bridge-line-left,.bridge-line-right{
+  width:2px;height:24px;background:#22c55e;position:relative;
+}
+.bridge-line-left::after{
+  content:'';position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);
+  border:5px solid transparent;border-top-color:#22c55e;
+}
+.bridge-line-right::after{
+  content:'';position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);
+  border:5px solid transparent;border-top-color:#22c55e;
+}
+/* After boxes connected */
+.after-connections{margin-top:12px}
+.after-item{
+  display:flex;align-items:center;gap:10px;
+  background:#fff;border-radius:8px;
+  padding:10px 14px;margin-bottom:8px;
+  border:1.5px solid #e5e7eb;
+  transition:box-shadow .2s;
+}
+.after-item:hover{box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.after-item .dot{
+  width:8px;height:8px;border-radius:50%;flex-shrink:0;
+}
+.after-item .dot.blue{background:#3b82f6}
+.after-item .dot.green{background:#10b981}
+.after-item .dot.purple{background:#8b5cf6}
+.after-item .info{flex:1}
+.after-item .info .name{font-size:13px;font-weight:700}
+.after-item .info .sub{font-size:11px;opacity:.6}
+.after-item .tag{
+  font-size:9px;font-weight:700;letter-spacing:1px;
+  text-transform:uppercase;padding:2px 8px;border-radius:4px;
+}
+.after-item .tag.mcp{background:#dcfce7;color:#16a34a}
+/* Summary bar at bottom */
+.summary{
+  margin-top:28px;padding:18px 24px;
+  background:linear-gradient(135deg,#eff6ff,#f0fdf4);
+  border-radius:12px;border:1px solid #dbeafe;
+  display:flex;align-items:center;gap:16px;
+}
+.summary .icon{font-size:24px}
+.summary .text{font-size:14px;line-height:1.6;color:#374151}
+.summary .text strong{color:#1e40af}
+/* Left side connector flow */
+.flow-connector{
+  display:flex;flex-direction:column;align-items:center;
+  margin:6px 0;position:relative;
+}
+.flow-connector .arrow-line{
+  width:2px;height:14px;background:#9ca3af;
+}
+.flow-connector .arrow-head{
+  width:0;height:0;
+  border-left:5px solid transparent;
+  border-right:5px solid transparent;
+  border-top:6px solid #9ca3af;
+}
+/* Badge for both sides */
+.badge{
+  display:inline-block;font-size:10px;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;
+  padding:3px 10px;border-radius:4px;margin-bottom:10px;
+}
+.badge.red{background:#fecaca;color:#dc2626}
+.badge.green{background:#bbf7d0;color:#16a34a}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="title">
+    <span class="title-line"></span>
+    Before / After 對比
+    <span class="title-line"></span>
+  </div>
+
+  <div class="comparison">
+
+    <!-- ===== BEFORE ===== -->
+    <div class="panel panel-before">
+      <div class="panel-header">
+        <div class="badge red">Before</div>
+        <h3>傳統方式</h3>
+        <div class="sub">LLM → 自訂腳本</div>
+      </div>
+
+      <div class="llm-box">
+        <div class="name">LLM</div>
+        <div class="desc">大語言模型</div>
+      </div>
+
+      <div class="flow-connector">
+        <div class="arrow-line"></div>
+        <div class="arrow-head"></div>
+      </div>
+
+      <div class="middle-box bad">
+        <strong style="font-size:13px;color:#991b1b;">自訂的資料抓取腳本</strong>
+        <ul>
+          <li>難以維護 — 每個 API 改版都要重寫</li>
+          <li>沒有標準 — 腳本風格各異，交接困難</li>
+          <li>每個環境都需要重新手動配置</li>
+          <li>增加流程本身複雜度</li>
+        </ul>
+      </div>
+
+      <div style="text-align:center;margin-top:8px;">
+        <span style="font-size:32px;color:#fca5a5;">✗ ✗ ✗</span>
+      </div>
+    </div>
+
+    <!-- ===== BRIDGE ===== -->
+    <div class="bridge-section">
+      <div class="bridge-line-left"></div>
+      <div class="bridge-oval">MCP 橋樑</div>
+      <div class="bridge-line-right"></div>
+    </div>
+
+    <!-- ===== AFTER ===== -->
+    <div class="panel panel-after">
+      <div class="panel-header">
+        <div class="badge green">After</div>
+        <h3>MCP 架構</h3>
+        <div class="sub">LLM → MCP → 後端</div>
+      </div>
+
+      <div class="llm-box" style="border-color:#86efac;">
+        <div class="name" style="color:#166534;">LLM</div>
+        <div class="desc">大語言模型</div>
+      </div>
+
+      <div class="flow-connector">
+        <div class="arrow-line" style="background:#22c55e;"></div>
+        <div class="arrow-head" style="border-top-color:#22c55e;"></div>
+      </div>
+
+      <div class="middle-box good">
+        <strong style="font-size:13px;color:#166534;">MCP Server → 後端服務</strong>
+        <ul>
+          <li><strong>標準化</strong> — 遵循 MCP 協定，即插即用</li>
+          <li><strong>一次開發</strong> — 所有 AI 平台都能使用</li>
+          <li><strong>零配置</strong> — 部署後自動發現工具</li>
+          <li><strong>安全隔離</strong> — Demo Mode 模擬，零風險</li>
+        </ul>
+      </div>
+
+      <div class="after-connections">
+        <div class="after-item">
+          <div class="dot blue"></div>
+          <div class="info">
+            <div class="name">Binance API</div>
+            <div class="sub">即時價格、K線數據</div>
+          </div>
+          <div class="tag mcp">MCP</div>
+        </div>
+        <div class="after-item">
+          <div class="dot green"></div>
+          <div class="info">
+            <div class="name">CoinGlass API</div>
+            <div class="sub">市場情緒、清算數據</div>
+          </div>
+          <div class="tag mcp">MCP</div>
+        </div>
+        <div class="after-item">
+          <div class="dot purple"></div>
+          <div class="info">
+            <div class="name">資料庫</div>
+            <div class="sub">持久化存儲</div>
+          </div>
+          <div class="tag mcp">MCP</div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:8px;">
+        <span style="font-size:28px;color:#86efac;">✓ 一勞永逸</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="summary">
+    <div class="icon">💡</div>
+    <div class="text">
+      <strong>核心轉變：</strong>
+      從「LLM → 自訂腳本」的混亂模式，進化到「LLM → MCP → 後端」的標準化架構。
+      MCP 就像 USB，讓所有 AI 模型都能即插即用後端工具，<strong>一次開發，到處通用</strong>。
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

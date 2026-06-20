@@ -1,0 +1,2402 @@
+{
+  "BTCUSDT": {
+    "symbol": "BTCUSDT",
+    "timestamp": "2026-06-20T08:33:49.763242",
+    "summary": {
+      "decision": "STRONG_SELL",
+      "score": -3,
+      "message": "❄️ 極強共振：空頭趨勢 + 頂部背離 (市場正在擠壓，等待突破)",
+      "action": "SELL"
+    },
+    "layers": {
+      "L1_Trend_4H": {
+        "direction": "bearish",
+        "price": 63631.3,
+        "ema200": 68027.3532
+      },
+      "L2_Context_1H": {
+        "environment": "squeezing",
+        "bb_width": 0.021741,
+        "avg_width": 0.031076
+      },
+      "L3_Trigger_30m": {
+        "time_window": "30m",
+        "phase": "多頭趨勢（支撐: [62344.2, 62421.7]）",
+        "trend": "看多",
+        "mfi_macd_divergence": "無明顯背離",
+        "rsi_mfi_divergence": "rsi mfi 同在上",
+        "latest_swing_high": 63286.3,
+        "latest_swing_low": 62899.9,
+        "latest_price": 63610.8,
+        "latest_macd_zscore": 0.5456854085000359,
+        "swing_highs": [
+          62994.5,
+          62865.1,
+          63286.3
+        ],
+        "swing_lows": [
+          62421.7,
+          62344.2,
+          62899.9
+        ],
+        "support_zone": [
+          62344.2,
+          62421.7
+        ],
+        "resistance_zone": [
+          63286.3,
+          62994.5
+        ],
+        "latest_10_mfi": [
+          81.78,
+          83.24,
+          70.5,
+          53.03,
+          59.22,
+          60.15,
+          51.54,
+          59.73,
+          64.28,
+          72.22
+        ],
+        "latest_10_rsi": [
+          67.43,
+          66.51,
+          64.75,
+          59.0,
+          58.96,
+          57.51,
+          52.13,
+          55.05,
+          58.15,
+          53.6
+        ]
+      }
+    }
+  },
+  "ETHUSDT": {
+    "symbol": "ETHUSDT",
+    "timestamp": "2026-06-20T08:33:50.646999",
+    "summary": {
+      "decision": "STRONG_SELL",
+      "score": -3,
+      "message": "❄️ 極強共振：空頭趨勢 + 頂部背離 (市場正在擠壓，等待突破)",
+      "action": "SELL"
+    },
+    "layers": {
+      "L1_Trend_4H": {
+        "direction": "bearish",
+        "price": 1711.81,
+        "ema200": 1856.6783
+      },
+      "L2_Context_1H": {
+        "environment": "squeezing",
+        "bb_width": 0.015593,
+        "avg_width": 0.036027
+      },
+      "L3_Trigger_30m": {
+        "time_window": "30m",
+        "phase": "多頭趨勢（支撐: [1688.51, 1688.7]）",
+        "trend": "看多",
+        "mfi_macd_divergence": "無明顯背離",
+        "rsi_mfi_divergence": "rsi mfi 同在上",
+        "latest_swing_high": 1707.0,
+        "latest_swing_low": 1695.82,
+        "latest_price": 1711.505,
+        "latest_macd_zscore": 0.0964879535664174,
+        "swing_highs": [
+          1712.99,
+          1700.17,
+          1707.0
+        ],
+        "swing_lows": [
+          1688.7,
+          1688.51,
+          1695.82
+        ],
+        "support_zone": [
+          1688.51,
+          1688.7
+        ],
+        "resistance_zone": [
+          1712.99,
+          1707.0
+        ],
+        "latest_10_mfi": [
+          68.81,
+          72.3,
+          57.92,
+          44.36,
+          52.4,
+          56.54,
+          46.87,
+          53.79,
+          49.53,
+          58.06
+        ],
+        "latest_10_rsi": [
+          60.2,
+          59.62,
+          58.79,
+          55.99,
+          55.69,
+          56.45,
+          50.44,
+          53.56,
+          57.91,
+          52.34
+        ]
+      }
+    }
+  },
+  "BNBUSDT": {
+    "symbol": "BNBUSDT",
+    "timestamp": "2026-06-20T08:33:49.763242",
+    "summary": {
+      "decision": "STRONG_SELL",
+      "score": -3,
+      "message": "❄️ 極強共振：空頭趨勢 + 頂部背離 (市場正在擠壓，等待突破)",
+      "action": "SELL"
+    },
+    "layers": {
+      "L1_Trend_4H": {
+        "direction": "bullish",
+        "price": 580.9,
+        "ema200": 574.7802
+      },
+      "L2_Context_1H": {
+        "environment": "neutral",
+        "bb_width": 0.049391,
+        "avg_width": 0.038876
+      },
+      "L3_Trigger_30m": {
+        "time_window": "30m",
+        "phase": "多頭趨勢（支撐: [569.28, 575.09])",
+        "trend": "看多",
+        "mfi_macd_divergence": "無明顯背離",
+        "rsi_mfi_divergence": "rsi mfi 分歧",
+        "latest_swing_high": 581.1851,
+        "latest_swing_low": 558.8289,
+        "latest_price": 580.9,
+        "latest_macd_zscore": 1.6603,
+        "swing_highs": [
+          580.1592,
+          578.5282,
+          581.1851
+        ],
+        "swing_lows": [
+          558.8289,
+          571.4414,
+          574.2447
+        ],
+        "support_zone": [
+          558.8289,
+          574.2447
+        ],
+        "resistance_zone": [
+          581.1851,
+          578.5282
+        ],
+        "latest_10_mfi": [
+          63.33,
+          39.4,
+          56.74,
+          34.19,
+          74.42,
+          37.42,
+          42.56,
+          64.06,
+          51.87,
+          62.14
+        ],
+        "latest_10_rsi": [
+          30.68,
+          57.45,
+          58.78,
+          49.77,
+          36.18,
+          64.51,
+          30.5,
+          65.91,
+          59.73,
+          34.93
+        ]
+      }
+    }
+  },
+  "SOLUSDT": {
+    "symbol": "SOLUSDT",
+    "timestamp": "2026-06-20T08:33:51.560333",
+    "summary": {
+      "decision": "STRONG_SELL",
+      "score": -3,
+      "message": "❄️ 極強共振：空頭趨勢 + 頂部背離 (市場正在擠壓，等待突破)",
+      "action": "SELL"
+    },
+    "layers": {
+      "L1_Trend_4H": {
+        "direction": "bearish",
+        "price": 69.86,
+        "ema200": 74.511
+      },
+      "L2_Context_1H": {
+        "environment": "squeezing",
+        "bb_width": 0.027324,
+        "avg_width": 0.046771
+      },
+      "L3_Trigger_30m": {
+        "time_window": "30m",
+        "phase": "多頭趨勢（支撐: [68.21, 68.3]）",
+        "trend": "看多",
+        "mfi_macd_divergence": "無明顯背離",
+        "rsi_mfi_divergence": "rsi mfi 同在上",
+        "latest_swing_high": 69.39,
+        "latest_swing_low": 68.67,
+        "latest_price": 69.855,
+        "latest_macd_zscore": 0.6840352987510816,
+        "swing_highs": [
+          69.79,
+          69.91,
+          69.39
+        ],
+        "swing_lows": [
+          68.3,
+          68.21,
+          68.67
+        ],
+        "support_zone": [
+          68.21,
+          68.3
+        ],
+        "resistance_zone": [
+          69.91,
+          69.79
+        ],
+        "latest_10_mfi": [
+          66.42,
+          69.61,
+          70.17,
+          56.31,
+          60.29,
+          61.84,
+          54.68,
+          60.85,
+          64.39,
+          70.45
+        ],
+        "latest_10_rsi": [
+          65.12,
+          64.98,
+          62.64,
+          57.91,
+          57.39,
+          55.87,
+          50.22,
+          52.43,
+          55.31,
+          49.41
+        ]
+      }
+    }
+  },
+  "XRPUSDT": {
+    "symbol": "XRPUSDT",
+    "timestamp": "2026-06-20T08:33:49.763242",
+    "summary": {
+      "decision": "BUY",
+      "score": 1,
+      "message": "🔥 多頭共振：趨勢向上 + 底部背離 (建議進場做多)",
+      "action": "BUY"
+    },
+    "layers": {
+      "L1_Trend_4H": {
+        "direction": "bullish",
+        "price": 1.1344,
+        "ema200": 1.1874
+      },
+      "L2_Context_1H": {
+        "environment": "neutral",
+        "bb_width": 0.023326,
+        "avg_width": 0.059852
+      },
+      "L3_Trigger_30m": {
+        "time_window": "30m",
+        "phase": "多頭趨勢（支撐: [1.11, 1.12])",
+        "trend": "中性",
+        "mfi_macd_divergence": "MFI MACD 底部背離",
+        "rsi_mfi_divergence": "rsi mfi 同在上",
+        "latest_swing_high": 1.1212,
+        "latest_swing_low": 1.0788,
+        "latest_price": 1.1344,
+        "latest_macd_zscore": 0.944,
+        "swing_highs": [
+          1.1212,
+          1.1164,
+          1.109
+        ],
+        "swing_lows": [
+          1.1101,
+          1.0788,
+          1.0864
+        ],
+        "support_zone": [
+          1.0788,
+          1.1101
+        ],
+        "resistance_zone": [
+          1.1212,
+          1.109
+        ],
+        "latest_10_mfi": [
+          67.9,
+          77.07,
+          42.82,
+          43.66,
+          49.3,
+          48.29,
+          71.96,
+          47.32,
+          40.0,
+          30.29
+        ],
+        "latest_10_rsi": [
+          61.98,
+          57.21,
+          64.71,
+          60.25,
+          44.19,
+          54.29,
+          59.58,
+          48.67,
+          61.6,
+          56.05
+        ]
+      }
+    }
+  },
+  "DOGEUSDT": {
+    "symbol": "DOGEUSDT",
+    "timestamp": "2026-06-20T08:33:49.763242",
+    "summary": {
+      "decision": "SELL",
+      "score": -1,
+      "message": "❄️ 空頭信號：趨勢向下 + 頂部背離 (建議避開或做空)",
+      "action": "SELL"
+    },
+    "layers": {
+      "L1_Trend_4H": {
+        "direction": "bullish",
+        "price": 0.08329,
+        "ema200": 0.0867
+      },
+      "L2_Context_1H": {
+        "environment": "expanding",
+        "bb_width": 0.028485,
+        "avg_width": 0.057089
+      },
+      "L3_Trigger_30m": {
+        "time_window": "30m",
+        "phase": "多頭趨勢（支撐: [0.08, 0.08])",
+        "trend": "看空",
+        "mfi_macd_divergence": "無明顯背離",
+        "rsi_mfi_divergence": "rsi mfi 同在下",
+        "latest_swing_high": 0.0845,
+        "latest_swing_low": 0.0792,
+        "latest_price": 0.08329,
+        "latest_macd_zscore": -0.5642,
+        "swing_highs": [
+          0.0845,
+          0.0809,
+          0.0815
+        ],
+        "swing_lows": [
+          0.0824,
+          0.0792,
+          0.0811
+        ],
+        "support_zone": [
+          0.0792,
+          0.0824
+        ],
+        "resistance_zone": [
+          0.0845,
+          0.0809
+        ],
+        "latest_10_mfi": [
+          48.65,
+          38.98,
+          51.82,
+          65.29,
+          77.18,
+          52.72,
+          79.24,
+          63.24,
+          76.39,
+          42.91
+        ],
+        "latest_10_rsi": [
+          45.78,
+          33.15,
+          61.54,
+          56.92,
+          67.39,
+          63.91,
+          41.46,
+          57.51,
+          50.63,
+          38.13
+        ]
+      }
+    }
+  },
+  "ADAUSDT": {
+    "symbol": "ADAUSDT",
+    "timestamp": "2026-06-20T08:33:49.763242",
+    "summary": {
+      "decision": "HOLD",
+      "score": 0,
+      "message": "⏸️ 持倉觀望：市場震盪中",
+      "action": "HOLD"
+    },
+    "layers": {
+      "L1_Trend_4H": {
+        "direction": "bearish",
+        "price": 0.1617,
+        "ema200": 0.1723
+      },
+      "L2_Context_1H": {
+        "environment": "expanding",
+        "bb_width": 0.054318,
+        "avg_width": 0.042736
+      },
+      "L3_Trigger_30m": {
+        "time_window": "30m",
+        "phase": "多頭趨勢",
+        "trend": "中性",
+        "mfi_macd_divergence": "MFI MACD 頂部背離",
+        "rsi_mfi_divergence": "rsi mfi 同在下",
+        "latest_swing_high": 0.1644,
+        "latest_swing_low": 0.1555,
+        "latest_price": 0.1617,
+        "latest_macd_zscore": -1.956,
+        "swing_highs": [
+          0.1604,
+          0.1644,
+          0.1583
+        ],
+        "swing_lows": [
+          0.1563,
+          0.1597,
+          0.1555
+        ],
+        "support_zone": [
+          0.1555,
+          0.1597
+        ],
+        "resistance_zone": [
+          0.1644,
+          0.1583
+        ],
+        "latest_10_mfi": [
+          65.33,
+          71.77,
+          47.85,
+          57.37,
+          38.47,
+          37.5,
+          37.86,
+          69.42,
+          65.01,
+          61.16
+        ],
+        "latest_10_rsi": [
+          51.83,
+          61.94,
+          46.37,
+          40.37,
+          63.44,
+          46.44,
+          55.15,
+          68.79,
+          40.14,
+          30.88
+        ]
+      }
+    }
+  },
+  "AVAXUSDT": {
+    "symbol": "AVAXUSDT",
+    "timestamp": "2026-06-20T08:33:49.763242",
+    "summary": {
+      "decision": "NEUTRAL",
+      "score": 0,
+      "message": "⚖️ 中性：多空均衡，等待明確信號",
+      "action": "HOLD"
+    },
+    "layers": {
+      "L1_Trend_4H": {
+        "direction": "bullish",
+        "price": 5.903,
+        "ema200": 6.1613
+      },
+      "L2_Context_1H": {
+        "environment": "neutral",
+        "bb_width": 0.040729,
+        "avg_width": 0.022241
+      },
+      "L3_Trigger_30m": {
+        "time_window": "30m",
+        "phase": "盤整震盪",
+        "trend": "看空",
+        "mfi_macd_divergence": "無明顯背離",
+        "rsi_mfi_divergence": "rsi mfi 同在上",
+        "latest_swing_high": 5.9189,
+        "latest_swing_low": 5.7655,
+        "latest_price": 5.903,
+        "latest_macd_zscore": 1.9387,
+        "swing_highs": [
+          5.8273,
+          5.9189,
+          5.8805
+        ],
+        "swing_lows": [
+          5.8708,
+          5.7655,
+          5.8358
+        ],
+        "support_zone": [
+          5.7655,
+          5.8708
+        ],
+        "resistance_zone": [
+          5.9189,
+          5.8273
+        ],
+        "latest_10_mfi": [
+          35.16,
+          56.91,
+          59.39,
+          60.31,
+          48.46,
+          45.14,
+          74.93,
+          41.67,
+          46.92,
+          74.11
+        ],
+        "latest_10_rsi": [
+          69.47,
+          48.06,
+          57.62,
+          31.1,
+          60.84,
+          35.62,
+          56.11,
+          39.67,
+          38.84,
+          56.5
+        ]
+      }
+    }
+  },
+  "DOTUSDT": {
+    "symbol": "DOTUSDT",
+    "timestamp": "2026-06-20T08:33:49.763242",
+    "summary": {
+      "decision": "SELL",
+      "score": -1,
+      "message": "❄️ 空頭信號：趨勢向下 + 頂部背離 (建議避開或做空)",
+      "action": "SELL"
+    },
+    "layers": {
+      "L1_Trend_4H": {
+        "direction": "bullish",
+        "price": 0.956,
+        "ema200": 0.9846
+      },
+      "L2_Context_1H": {
+        "environment": "expanding",
+        "bb_width": 0.039948,
+        "avg_width": 0.078931
+      },
+      "L3_Trigger_30m": {
+        "time_window": "30m",
+        "phase": "空頭趨勢（阻力: [0.97, 0.98])",
+        "trend": "看空",
+        "mfi_macd_divergence": "無明顯背離",
+        "rsi_mfi_divergence": "rsi mfi 同在上",
+        "latest_swing_high": 0.9413,
+        "latest_swing_low": 0.9178,
+        "latest_price": 0.956,
+        "latest_macd_zscore": 0.0426,
+        "swing_highs": [
+          0.9413,
+          0.9351,
+          0.9376
+        ],
+        "swing_lows": [
+          0.9234,
+          0.9178,
+          0.9412
+        ],
+        "support_zone": [
+          0.9178,
+          0.9412
+        ],
+        "resistance_zone": [
+          0.9413,
+          0.9351
+        ],
+        "latest_10_mfi": [
+          40.57,
+          30.41,
+          65.0,
+          30.18,
+          43.0,
+          33.95,
+          62.09,
+          67.06,
+          51.09,
+          36.11
+        ],
+        "latest_10_rsi": [
+          68.02,
+          57.28,
+          69.35,
+          37.54,
+          67.22,
+          61.61,
+          56.43,
+          35.53,
+          60.64,
+          43.6
+        ]
+      }
+    }
+  },
+  "LINKUSDT": {
+    "symbol": "LINKUSDT",
+    "timestamp": "2026-06-20T08:33:49.763242",
+    "summary": {
+      "decision": "SELL",
+      "score": -1,
+      "message": "❄️ 空頭信號：趨勢向下 + 頂部背離 (建議避開或做空)",
+      "action": "SELL"
+    },
+    "layers": {
+      "L1_Trend_4H": {
+        "direction": "bullish",
+        "price": 7.923,
+        "ema200": 7.9501
+      },
+      "L2_Context_1H": {
+        "environment": "expanding",
+        "bb_width": 0.032223,
+        "avg_width": 0.027984
+      },
+      "L3_Trigger_30m": {
+        "time_window": "30m",
+        "phase": "多頭趨勢",
+        "trend": "中性",
+        "mfi_macd_divergence": "MFI MACD 頂部背離",
+        "rsi_mfi_divergence": "rsi mfi 同在下",
+        "latest_swing_high": 8.0491,
+        "latest_swing_low": 7.5625,
+        "latest_price": 7.923,
+        "latest_macd_zscore": -1.1332,
+        "swing_highs": [
+          8.0491,
+          7.8601,
+          7.9618
+        ],
+        "swing_lows": [
+          7.8598,
+          7.9096,
+          7.5625
+        ],
+        "support_zone": [
+          7.5625,
+          7.9096
+        ],
+        "resistance_zone": [
+          8.0491,
+          7.8601
+        ],
+        "latest_10_mfi": [
+          40.29,
+          63.39,
+          66.52,
+          49.61,
+          45.67,
+          77.24,
+          78.01,
+          58.6,
+          42.65,
+          73.75
+        ],
+        "latest_10_rsi": [
+          31.17,
+          36.76,
+          39.66,
+          57.06,
+          52.12,
+          47.33,
+          40.32,
+          33.82,
+          51.98,
+          42.7
+        ]
+      }
+    }
+  },
+  "LTCUSDT": {
+    "symbol": "LTCUSDT",
+    "timestamp": "2026-06-20T08:33:49.763242",
+    "summary": {
+      "decision": "STRONG_SELL",
+      "score": -3,
+      "message": "❄️ 極強共振：空頭趨勢 + 頂部背離 (市場正在擠壓，等待突破)",
+      "action": "SELL"
+    },
+    "layers": {
+      "L1_Trend_4H": {
+        "direction": "bullish",
+        "price": 43.85,
+        "ema200": 42.0487
+      },
+      "L2_Context_1H": {
+        "environment": "expanding",
+        "bb_width": 0.034795,
+        "avg_width": 0.047305
+      },
+      "L3_Trigger_30m": {
+        "time_window": "30m",
+        "phase": "空頭趨勢",
+        "trend": "中性",
+        "mfi_macd_divergence": "MFI MACD 底部背離",
+        "rsi_mfi_divergence": "rsi mfi 同在上",
+        "latest_swing_high": 44.3596,
+        "latest_swing_low": 42.2613,
+        "latest_price": 43.85,
+        "latest_macd_zscore": -1.307,
+        "swing_highs": [
+          44.3596,
+          43.5931,
+          43.7681
+        ],
+        "swing_lows": [
+          43.3181,
+          43.6552,
+          42.2613
+        ],
+        "support_zone": [
+          42.2613,
+          43.6552
+        ],
+        "resistance_zone": [
+          44.3596,
+          43.5931
+        ],
+        "latest_10_mfi": [
+          55.04,
+          57.12,
+          66.5,
+          73.15,
+          30.03,
+          77.23,
+          68.47,
+          41.6,
+          66.34,
+          56.81
+        ],
+        "latest_10_rsi": [
+          68.11,
+          68.58,
+          52.65,
+          65.28,
+          62.97,
+          54.02,
+          63.69,
+          50.34,
+          57.61,
+          69.67
+        ]
+      }
+    }
+  },
+  "BCHUSDT": {
+    "symbol": "BCHUSDT",
+    "timestamp": "2026-06-20T08:33:49.763242",
+    "summary": {
+      "decision": "STRONG_SELL",
+      "score": -3,
+      "message": "❄️ 極強共振：空頭趨勢 + 頂部背離 (市場正在擠壓，等待突破)",
+      "action": "SELL"
+    },
+    "layers": {
+      "L1_Trend_4H": {
+        "direction": "bullish",
+        "price": 197.9,
+        "ema200": 199.2741
+      },
+      "L2_Context_1H": {
+        "environment": "expanding",
+        "bb_width": 0.010106,
+        "avg_width": 0.028444
+      },
+      "L3_Trigger_30m": {
+        "time_window": "30m",
+        "phase": "盤整震盪",
+        "trend": "看空",
+        "mfi_macd_divergence": "無明顯背離",
+        "rsi_mfi_divergence": "rsi mfi 同在上",
+        "latest_swing_high": 200.3778,
+        "latest_swing_low": 188.4548,
+        "latest_price": 197.9,
+        "latest_macd_zscore": -1.9005,
+        "swing_highs": [
+          193.9775,
+          200.3778,
+          194.0521
+        ],
+        "swing_lows": [
+          197.1838,
+          188.4548,
+          194.986
+        ],
+        "support_zone": [
+          188.4548,
+          197.1838
+        ],
+        "resistance_zone": [
+          200.3778,
+          193.9775
+        ],
+        "latest_10_mfi": [
+          61.1,
+          32.11,
+          32.79,
+          64.06,
+          66.22,
+          71.93,
+          43.92,
+          54.91,
+          76.15,
+          53.49
+        ],
+        "latest_10_rsi": [
+          34.13,
+          52.06,
+          30.32,
+          46.59,
+          31.54,
+          57.76,
+          46.37,
+          31.19,
+          55.64,
+          63.03
+        ]
+      }
+    }
+  },
+  "UNIUSDT": {
+    "symbol": "UNIUSDT",
+    "timestamp": "2026-06-20T08:33:49.763242",
+    "summary": {
+      "decision": "BUY",
+      "score": 1,
+      "message": "🔥 多頭共振：趨勢向上 + 底部背離 (建議進場做多)",
+      "action": "BUY"
+    },
+    "layers": {
+      "L1_Trend_4H": {
+        "direction": "bullish",
+        "price": 3.065,
+        "ema200": 2.9523
+      },
+      "L2_Context_1H": {
+        "environment": "squeezing",
+        "bb_width": 0.010666,
+        "avg_width": 0.059016
+      },
+      "L3_Trigger_30m": {
+        "time_window": "30m",
+        "phase": "多頭趨勢（支撐: [3.00, 3.03])",
+        "trend": "看空",
+        "mfi_macd_divergence": "MFI MACD 頂部背離",
+        "rsi_mfi_divergence": "rsi mfi 同在上",
+        "latest_swing_high": 3.1303,
+        "latest_swing_low": 3.0045,
+        "latest_price": 3.065,
+        "latest_macd_zscore": 0.9671,
+        "swing_highs": [
+          3.1303,
+          3.0436,
+          3.1172
+        ],
+        "swing_lows": [
+          3.0218,
+          3.0045,
+          3.0632
+        ],
+        "support_zone": [
+          3.0045,
+          3.0632
+        ],
+        "resistance_zone": [
+          3.1303,
+          3.0436
+        ],
+        "latest_10_mfi": [
+          33.05,
+          73.58,
+          60.93,
+          77.56,
+          33.73,
+          39.35,
+          64.73,
+          33.41,
+          32.16,
+          72.69
+        ],
+        "latest_10_rsi": [
+          44.94,
+          56.96,
+          65.51,
+          49.9,
+          34.5,
+          49.05,
+          66.16,
+          69.98,
+          54.03,
+          41.2
+        ]
+      }
+    }
+  },
+  "ATOMUSDT": {
+    "symbol": "ATOMUSDT",
+    "timestamp": "2026-06-20T08:33:49.763242",
+    "summary": {
+      "decision": "STRONG_SELL",
+      "score": -3,
+      "message": "❄️ 極強共振：空頭趨勢 + 頂部背離 (市場正在擠壓，等待突破)",
+      "action": "SELL"
+    },
+    "layers": {
+      "L1_Trend_4H": {
+        "direction": "bullish",
+        "price": 1.802,
+        "ema200": 1.8057
+      },
+      "L2_Context_1H": {
+        "environment": "expanding",
+        "bb_width": 0.04165,
+        "avg_width": 0.033644
+      },
+      "L3_Trigger_30m": {
+        "time_window": "30m",
+        "phase": "空頭趨勢",
+        "trend": "看空",
+        "mfi_macd_divergence": "MFI MACD 頂部背離",
+        "rsi_mfi_divergence": "rsi mfi 分歧",
+        "latest_swing_high": 1.829,
+        "latest_swing_low": 1.7458,
+        "latest_price": 1.802,
+        "latest_macd_zscore": -1.448,
+        "swing_highs": [
+          1.794,
+          1.829,
+          1.7771
+        ],
+        "swing_lows": [
+          1.7909,
+          1.748,
+          1.7458
+        ],
+        "support_zone": [
+          1.7458,
+          1.7909
+        ],
+        "resistance_zone": [
+          1.829,
+          1.7771
+        ],
+        "latest_10_mfi": [
+          31.25,
+          43.42,
+          48.06,
+          31.31,
+          46.8,
+          34.23,
+          31.06,
+          41.91,
+          56.31,
+          48.9
+        ],
+        "latest_10_rsi": [
+          61.95,
+          43.74,
+          54.67,
+          44.19,
+          33.43,
+          60.68,
+          52.36,
+          63.22,
+          44.98,
+          33.52
+        ]
+      }
+    }
+  },
+  "APTUSDT": {
+    "symbol": "APTUSDT",
+    "timestamp": "2026-06-20T08:33:49.763242",
+    "summary": {
+      "decision": "NEUTRAL",
+      "score": 0,
+      "message": "⚖️ 中性：多空均衡，等待明確信號",
+      "action": "HOLD"
+    },
+    "layers": {
+      "L1_Trend_4H": {
+        "direction": "bearish",
+        "price": 0.631,
+        "ema200": 0.6043
+      },
+      "L2_Context_1H": {
+        "environment": "neutral",
+        "bb_width": 0.05129,
+        "avg_width": 0.055835
+      },
+      "L3_Trigger_30m": {
+        "time_window": "30m",
+        "phase": "空頭趨勢（阻力: [0.64, 0.64])",
+        "trend": "看多",
+        "mfi_macd_divergence": "MFI MACD 底部背離",
+        "rsi_mfi_divergence": "rsi mfi 同在下",
+        "latest_swing_high": 0.6343,
+        "latest_swing_low": 0.607,
+        "latest_price": 0.631,
+        "latest_macd_zscore": -0.9737,
+        "swing_highs": [
+          0.6343,
+          0.6324,
+          0.6301
+        ],
+        "swing_lows": [
+          0.6081,
+          0.6281,
+          0.607
+        ],
+        "support_zone": [
+          0.607,
+          0.6281
+        ],
+        "resistance_zone": [
+          0.6343,
+          0.6301
+        ],
+        "latest_10_mfi": [
+          63.26,
+          41.0,
+          66.58,
+          49.54,
+          78.85,
+          64.53,
+          74.4,
+          32.28,
+          43.85,
+          56.92
+        ],
+        "latest_10_rsi": [
+          54.23,
+          43.32,
+          64.48,
+          64.58,
+          42.48,
+          35.51,
+          53.54,
+          50.69,
+          31.26,
+          39.78
+        ]
+      }
+    }
+  },
+  "ARBUSDT": {
+    "symbol": "ARBUSDT",
+    "timestamp": "2026-06-20T08:33:49.763242",
+    "summary": {
+      "decision": "BUY",
+      "score": 1,
+      "message": "🔥 多頭共振：趨勢向上 + 底部背離 (建議進場做多)",
+      "action": "BUY"
+    },
+    "layers": {
+      "L1_Trend_4H": {
+        "direction": "bearish",
+        "price": 0.0834,
+        "ema200": 0.0863
+      },
+      "L2_Context_1H": {
+        "environment": "neutral",
+        "bb_width": 0.046934,
+        "avg_width": 0.071562
+      },
+      "L3_Trigger_30m": {
+        "time_window": "30m",
+        "phase": "多頭趨勢（支撐: [0.08, 0.08])",
+        "trend": "看空",
+        "mfi_macd_divergence": "無明顯背離",
+        "rsi_mfi_divergence": "rsi mfi 同在上",
+        "latest_swing_high": 0.0837,
+        "latest_swing_low": 0.0798,
+        "latest_price": 0.0834,
+        "latest_macd_zscore": -1.1086,
+        "swing_highs": [
+          0.082,
+          0.0812,
+          0.0837
+        ],
+        "swing_lows": [
+          0.0798,
+          0.0833,
+          0.0816
+        ],
+        "support_zone": [
+          0.0798,
+          0.0833
+        ],
+        "resistance_zone": [
+          0.0837,
+          0.0812
+        ],
+        "latest_10_mfi": [
+          32.63,
+          71.12,
+          76.17,
+          79.97,
+          31.49,
+          69.22,
+          44.75,
+          56.06,
+          50.59,
+          54.64
+        ],
+        "latest_10_rsi": [
+          31.78,
+          55.53,
+          56.31,
+          40.37,
+          52.04,
+          57.52,
+          52.25,
+          43.8,
+          63.54,
+          33.89
+        ]
+      }
+    }
+  },
+  "SUIUSDT": {
+    "symbol": "SUIUSDT",
+    "timestamp": "2026-06-20T08:33:49.763242",
+    "summary": {
+      "decision": "SELL",
+      "score": -1,
+      "message": "❄️ 空頭信號：趨勢向下 + 頂部背離 (建議避開或做空)",
+      "action": "SELL"
+    },
+    "layers": {
+      "L1_Trend_4H": {
+        "direction": "bullish",
+        "price": 0.7132,
+        "ema200": 0.7184
+      },
+      "L2_Context_1H": {
+        "environment": "expanding",
+        "bb_width": 0.010449,
+        "avg_width": 0.066095
+      },
+      "L3_Trigger_30m": {
+        "time_window": "30m",
+        "phase": "盤整震盪",
+        "trend": "中性",
+        "mfi_macd_divergence": "無明顯背離",
+        "rsi_mfi_divergence": "rsi mfi 分歧",
+        "latest_swing_high": 0.7188,
+        "latest_swing_low": 0.6822,
+        "latest_price": 0.7132,
+        "latest_macd_zscore": -0.4327,
+        "swing_highs": [
+          0.7188,
+          0.7077,
+          0.7104
+        ],
+        "swing_lows": [
+          0.7034,
+          0.6822,
+          0.687
+        ],
+        "support_zone": [
+          0.6822,
+          0.7034
+        ],
+        "resistance_zone": [
+          0.7188,
+          0.7077
+        ],
+        "latest_10_mfi": [
+          55.12,
+          38.24,
+          45.49,
+          73.29,
+          56.43,
+          44.11,
+          32.44,
+          65.57,
+          79.9,
+          51.45
+        ],
+        "latest_10_rsi": [
+          33.57,
+          66.71,
+          48.37,
+          63.45,
+          39.7,
+          67.08,
+          68.82,
+          41.27,
+          51.58,
+          40.79
+        ]
+      }
+    }
+  },
+  "NEARUSDT": {
+    "symbol": "NEARUSDT",
+    "timestamp": "2026-06-20T08:33:49.763242",
+    "summary": {
+      "decision": "SELL",
+      "score": -1,
+      "message": "❄️ 空頭信號：趨勢向下 + 頂部背離 (建議避開或做空)",
+      "action": "SELL"
+    },
+    "layers": {
+      "L1_Trend_4H": {
+        "direction": "bullish",
+        "price": 2.153,
+        "ema200": 2.0808
+      },
+      "L2_Context_1H": {
+        "environment": "squeezing",
+        "bb_width": 0.043732,
+        "avg_width": 0.066389
+      },
+      "L3_Trigger_30m": {
+        "time_window": "30m",
+        "phase": "多頭趨勢（支撐: [2.11, 2.13])",
+        "trend": "看空",
+        "mfi_macd_divergence": "無明顯背離",
+        "rsi_mfi_divergence": "rsi mfi 分歧",
+        "latest_swing_high": 2.2105,
+        "latest_swing_low": 2.0889,
+        "latest_price": 2.153,
+        "latest_macd_zscore": -1.8622,
+        "swing_highs": [
+          2.1443,
+          2.1367,
+          2.2105
+        ],
+        "swing_lows": [
+          2.1078,
+          2.0889,
+          2.0984
+        ],
+        "support_zone": [
+          2.0889,
+          2.1078
+        ],
+        "resistance_zone": [
+          2.2105,
+          2.1367
+        ],
+        "latest_10_mfi": [
+          71.62,
+          52.42,
+          35.98,
+          77.65,
+          67.83,
+          76.2,
+          45.44,
+          49.25,
+          43.83,
+          64.86
+        ],
+        "latest_10_rsi": [
+          40.22,
+          52.92,
+          53.67,
+          67.01,
+          52.04,
+          62.55,
+          62.03,
+          46.78,
+          52.63,
+          65.96
+        ]
+      }
+    }
+  },
+  "INJUSDT": {
+    "symbol": "INJUSDT",
+    "timestamp": "2026-06-20T08:33:49.763242",
+    "summary": {
+      "decision": "SELL",
+      "score": -1,
+      "message": "❄️ 空頭信號：趨勢向下 + 頂部背離 (建議避開或做空)",
+      "action": "SELL"
+    },
+    "layers": {
+      "L1_Trend_4H": {
+        "direction": "bullish",
+        "price": 5.111,
+        "ema200": 5.1073
+      },
+      "L2_Context_1H": {
+        "environment": "neutral",
+        "bb_width": 0.026778,
+        "avg_width": 0.028298
+      },
+      "L3_Trigger_30m": {
+        "time_window": "30m",
+        "phase": "多頭趨勢",
+        "trend": "中性",
+        "mfi_macd_divergence": "MFI MACD 底部背離",
+        "rsi_mfi_divergence": "rsi mfi 同在下",
+        "latest_swing_high": 5.2637,
+        "latest_swing_low": 4.9884,
+        "latest_price": 5.111,
+        "latest_macd_zscore": 1.4057,
+        "swing_highs": [
+          5.0146,
+          5.2637,
+          5.1986
+        ],
+        "swing_lows": [
+          5.067,
+          5.0052,
+          4.9884
+        ],
+        "support_zone": [
+          4.9884,
+          5.067
+        ],
+        "resistance_zone": [
+          5.2637,
+          5.0146
+        ],
+        "latest_10_mfi": [
+          47.28,
+          52.88,
+          46.41,
+          57.47,
+          41.48,
+          35.93,
+          53.62,
+          67.89,
+          52.6,
+          74.21
+        ],
+        "latest_10_rsi": [
+          38.03,
+          69.69,
+          31.22,
+          38.58,
+          38.91,
+          53.55,
+          30.33,
+          38.31,
+          59.78,
+          42.88
+        ]
+      }
+    }
+  },
+  "XAUTUSDT": {
+    "symbol": "XAUTUSDT",
+    "timestamp": "2026-06-20T08:33:49.763242",
+    "summary": {
+      "decision": "NEUTRAL",
+      "score": 0,
+      "message": "⚖️ 中性：多空均衡，等待明確信號",
+      "action": "HOLD"
+    },
+    "layers": {
+      "L1_Trend_4H": {
+        "direction": "bearish",
+        "price": 4146.99,
+        "ema200": 4129.3239
+      },
+      "L2_Context_1H": {
+        "environment": "neutral",
+        "bb_width": 0.026696,
+        "avg_width": 0.04177
+      },
+      "L3_Trigger_30m": {
+        "time_window": "30m",
+        "phase": "盤整震盪",
+        "trend": "看空",
+        "mfi_macd_divergence": "MFI MACD 底部背離",
+        "rsi_mfi_divergence": "rsi mfi 同在下",
+        "latest_swing_high": 4126.7193,
+        "latest_swing_low": 3944.5464,
+        "latest_price": 4146.99,
+        "latest_macd_zscore": -0.4657,
+        "swing_highs": [
+          4120.2209,
+          4032.7592,
+          4126.7193
+        ],
+        "swing_lows": [
+          3944.5464,
+          3960.8847,
+          3994.3407
+        ],
+        "support_zone": [
+          3944.5464,
+          3994.3407
+        ],
+        "resistance_zone": [
+          4126.7193,
+          4032.7592
+        ],
+        "latest_10_mfi": [
+          78.28,
+          54.08,
+          57.33,
+          75.87,
+          74.94,
+          58.38,
+          41.5,
+          56.16,
+          47.95,
+          77.89
+        ],
+        "latest_10_rsi": [
+          31.33,
+          44.97,
+          57.5,
+          54.04,
+          52.31,
+          60.48,
+          39.54,
+          63.62,
+          66.6,
+          31.41
+        ]
+      }
+    }
+  },
+  "AAPLUSDT": {
+    "symbol": "AAPLUSDT",
+    "timestamp": "2026-06-20T08:33:49.763242",
+    "summary": {
+      "decision": "HOLD",
+      "score": 0,
+      "message": "⏸️ 持倉觀望：市場震盪中",
+      "action": "HOLD"
+    },
+    "layers": {
+      "L1_Trend_4H": {
+        "direction": "bullish",
+        "price": 296.56,
+        "ema200": 294.2154
+      },
+      "L2_Context_1H": {
+        "environment": "neutral",
+        "bb_width": 0.043687,
+        "avg_width": 0.076285
+      },
+      "L3_Trigger_30m": {
+        "time_window": "30m",
+        "phase": "盤整震盪",
+        "trend": "看多",
+        "mfi_macd_divergence": "MFI MACD 頂部背離",
+        "rsi_mfi_divergence": "rsi mfi 同在上",
+        "latest_swing_high": 302.7885,
+        "latest_swing_low": 283.7393,
+        "latest_price": 296.56,
+        "latest_macd_zscore": -1.5505,
+        "swing_highs": [
+          302.7885,
+          297.201,
+          301.421
+        ],
+        "swing_lows": [
+          289.1994,
+          283.7393,
+          287.1908
+        ],
+        "support_zone": [
+          283.7393,
+          289.1994
+        ],
+        "resistance_zone": [
+          302.7885,
+          297.201
+        ],
+        "latest_10_mfi": [
+          31.1,
+          72.01,
+          40.32,
+          52.79,
+          62.14,
+          62.57,
+          74.87,
+          46.36,
+          58.74,
+          35.5
+        ],
+        "latest_10_rsi": [
+          68.34,
+          40.93,
+          47.27,
+          34.38,
+          42.6,
+          30.81,
+          36.45,
+          44.32,
+          30.06,
+          52.59
+        ]
+      }
+    }
+  },
+  "TSLAUSDT": {
+    "symbol": "TSLAUSDT",
+    "timestamp": "2026-06-20T08:33:49.763242",
+    "summary": {
+      "decision": "SELL",
+      "score": -1,
+      "message": "❄️ 空頭信號：趨勢向下 + 頂部背離 (建議避開或做空)",
+      "action": "SELL"
+    },
+    "layers": {
+      "L1_Trend_4H": {
+        "direction": "bullish",
+        "price": 399.72,
+        "ema200": 390.0399
+      },
+      "L2_Context_1H": {
+        "environment": "expanding",
+        "bb_width": 0.027845,
+        "avg_width": 0.066918
+      },
+      "L3_Trigger_30m": {
+        "time_window": "30m",
+        "phase": "多頭趨勢",
+        "trend": "看空",
+        "mfi_macd_divergence": "MFI MACD 頂部背離",
+        "rsi_mfi_divergence": "rsi mfi 同在下",
+        "latest_swing_high": 408.7071,
+        "latest_swing_low": 382.8112,
+        "latest_price": 399.72,
+        "latest_macd_zscore": -0.98,
+        "swing_highs": [
+          408.7071,
+          408.3403,
+          389.3827
+        ],
+        "swing_lows": [
+          390.5013,
+          391.6293,
+          382.8112
+        ],
+        "support_zone": [
+          382.8112,
+          391.6293
+        ],
+        "resistance_zone": [
+          408.7071,
+          389.3827
+        ],
+        "latest_10_mfi": [
+          50.1,
+          44.53,
+          69.62,
+          60.08,
+          71.38,
+          50.05,
+          45.53,
+          68.9,
+          45.55,
+          31.62
+        ],
+        "latest_10_rsi": [
+          42.2,
+          36.98,
+          68.99,
+          39.51,
+          37.98,
+          36.03,
+          60.73,
+          56.12,
+          57.64,
+          48.49
+        ]
+      }
+    }
+  },
+  "NVDAUSDT": {
+    "symbol": "NVDAUSDT",
+    "timestamp": "2026-06-20T08:33:49.763242",
+    "summary": {
+      "decision": "HOLD",
+      "score": 0,
+      "message": "⏸️ 持倉觀望：市場震盪中",
+      "action": "HOLD"
+    },
+    "layers": {
+      "L1_Trend_4H": {
+        "direction": "bullish",
+        "price": 209.29,
+        "ema200": 217.2016
+      },
+      "L2_Context_1H": {
+        "environment": "expanding",
+        "bb_width": 0.02768,
+        "avg_width": 0.047349
+      },
+      "L3_Trigger_30m": {
+        "time_window": "30m",
+        "phase": "空頭趨勢",
+        "trend": "看多",
+        "mfi_macd_divergence": "MFI MACD 頂部背離",
+        "rsi_mfi_divergence": "rsi mfi 分歧",
+        "latest_swing_high": 214.5875,
+        "latest_swing_low": 201.194,
+        "latest_price": 209.29,
+        "latest_macd_zscore": -0.6414,
+        "swing_highs": [
+          214.5875,
+          213.3386,
+          207.1734
+        ],
+        "swing_lows": [
+          201.194,
+          205.8558,
+          201.865
+        ],
+        "support_zone": [
+          201.194,
+          205.8558
+        ],
+        "resistance_zone": [
+          214.5875,
+          207.1734
+        ],
+        "latest_10_mfi": [
+          37.26,
+          56.13,
+          52.47,
+          62.18,
+          58.2,
+          30.75,
+          66.3,
+          48.96,
+          61.29,
+          53.67
+        ],
+        "latest_10_rsi": [
+          65.42,
+          65.42,
+          61.72,
+          63.61,
+          57.99,
+          40.59,
+          67.36,
+          64.4,
+          38.93,
+          40.84
+        ]
+      }
+    }
+  },
+  "MSFTUSDT": {
+    "symbol": "MSFTUSDT",
+    "timestamp": "2026-06-20T08:33:49.763242",
+    "summary": {
+      "decision": "HOLD",
+      "score": 0,
+      "message": "⏸️ 持倉觀望：市場震盪中",
+      "action": "HOLD"
+    },
+    "layers": {
+      "L1_Trend_4H": {
+        "direction": "bullish",
+        "price": 381.82,
+        "ema200": 391.2702
+      },
+      "L2_Context_1H": {
+        "environment": "expanding",
+        "bb_width": 0.015462,
+        "avg_width": 0.032645
+      },
+      "L3_Trigger_30m": {
+        "time_window": "30m",
+        "phase": "空頭趨勢（阻力: [385.64, 389.46])",
+        "trend": "看多",
+        "mfi_macd_divergence": "無明顯背離",
+        "rsi_mfi_divergence": "rsi mfi 分歧",
+        "latest_swing_high": 391.644,
+        "latest_swing_low": 362.9006,
+        "latest_price": 381.82,
+        "latest_macd_zscore": -0.9263,
+        "swing_highs": [
+          379.7812,
+          377.5307,
+          391.644
+        ],
+        "swing_lows": [
+          365.6463,
+          362.9006,
+          380.6574
+        ],
+        "support_zone": [
+          362.9006,
+          380.6574
+        ],
+        "resistance_zone": [
+          391.644,
+          377.5307
+        ],
+        "latest_10_mfi": [
+          49.28,
+          79.13,
+          71.92,
+          62.19,
+          67.49,
+          37.44,
+          77.56,
+          72.26,
+          54.1,
+          44.54
+        ],
+        "latest_10_rsi": [
+          51.31,
+          34.73,
+          57.63,
+          35.28,
+          35.44,
+          39.66,
+          58.58,
+          66.24,
+          35.47,
+          41.89
+        ]
+      }
+    }
+  },
+  "AMZNUSDT": {
+    "symbol": "AMZNUSDT",
+    "timestamp": "2026-06-20T08:33:49.763242",
+    "summary": {
+      "decision": "NEUTRAL",
+      "score": 0,
+      "message": "⚖️ 中性：多空均衡，等待明確信號",
+      "action": "HOLD"
+    },
+    "layers": {
+      "L1_Trend_4H": {
+        "direction": "bullish",
+        "price": 243.14,
+        "ema200": 260.4119
+      },
+      "L2_Context_1H": {
+        "environment": "expanding",
+        "bb_width": 0.043145,
+        "avg_width": 0.0617
+      },
+      "L3_Trigger_30m": {
+        "time_window": "30m",
+        "phase": "空頭趨勢",
+        "trend": "看空",
+        "mfi_macd_divergence": "MFI MACD 頂部背離",
+        "rsi_mfi_divergence": "rsi mfi 分歧",
+        "latest_swing_high": 249.389,
+        "latest_swing_low": 232.2838,
+        "latest_price": 243.14,
+        "latest_macd_zscore": 1.4479,
+        "swing_highs": [
+          249.389,
+          244.411,
+          243.6994
+        ],
+        "swing_lows": [
+          232.2838,
+          232.5635,
+          237.9923
+        ],
+        "support_zone": [
+          232.2838,
+          237.9923
+        ],
+        "resistance_zone": [
+          249.389,
+          243.6994
+        ],
+        "latest_10_mfi": [
+          31.02,
+          42.19,
+          38.28,
+          71.56,
+          77.24,
+          53.36,
+          74.61,
+          78.93,
+          57.69,
+          65.39
+        ],
+        "latest_10_rsi": [
+          54.59,
+          53.86,
+          40.91,
+          62.62,
+          38.84,
+          41.0,
+          37.73,
+          52.46,
+          37.7,
+          39.39
+        ]
+      }
+    }
+  },
+  "GOOGLUSDT": {
+    "symbol": "GOOGLUSDT",
+    "timestamp": "2026-06-20T08:33:49.763242",
+    "summary": {
+      "decision": "NEUTRAL",
+      "score": 0,
+      "message": "⚖️ 中性：多空均衡，等待明確信號",
+      "action": "HOLD"
+    },
+    "layers": {
+      "L1_Trend_4H": {
+        "direction": "bearish",
+        "price": 366.12,
+        "ema200": 391.9055
+      },
+      "L2_Context_1H": {
+        "environment": "expanding",
+        "bb_width": 0.014351,
+        "avg_width": 0.022062
+      },
+      "L3_Trigger_30m": {
+        "time_window": "30m",
+        "phase": "空頭趨勢（阻力: [369.78, 373.44])",
+        "trend": "中性",
+        "mfi_macd_divergence": "無明顯背離",
+        "rsi_mfi_divergence": "rsi mfi 同在下",
+        "latest_swing_high": 376.9025,
+        "latest_swing_low": 355.1865,
+        "latest_price": 366.12,
+        "latest_macd_zscore": -1.8415,
+        "swing_highs": [
+          360.106,
+          376.9025,
+          368.4895
+        ],
+        "swing_lows": [
+          362.7363,
+          359.2315,
+          355.1865
+        ],
+        "support_zone": [
+          355.1865,
+          362.7363
+        ],
+        "resistance_zone": [
+          376.9025,
+          360.106
+        ],
+        "latest_10_mfi": [
+          59.31,
+          47.91,
+          59.78,
+          65.09,
+          48.67,
+          55.96,
+          61.62,
+          79.21,
+          76.12,
+          62.72
+        ],
+        "latest_10_rsi": [
+          56.28,
+          50.83,
+          66.25,
+          40.49,
+          40.45,
+          58.37,
+          68.27,
+          53.6,
+          34.84,
+          59.32
+        ]
+      }
+    }
+  },
+  "METAUSDT": {
+    "symbol": "METAUSDT",
+    "timestamp": "2026-06-20T08:33:49.763242",
+    "summary": {
+      "decision": "HOLD",
+      "score": 0,
+      "message": "⏸️ 持倉觀望：市場震盪中",
+      "action": "HOLD"
+    },
+    "layers": {
+      "L1_Trend_4H": {
+        "direction": "bullish",
+        "price": 576.72,
+        "ema200": 571.943
+      },
+      "L2_Context_1H": {
+        "environment": "squeezing",
+        "bb_width": 0.020682,
+        "avg_width": 0.063023
+      },
+      "L3_Trigger_30m": {
+        "time_window": "30m",
+        "phase": "多頭趨勢",
+        "trend": "中性",
+        "mfi_macd_divergence": "無明顯背離",
+        "rsi_mfi_divergence": "rsi mfi 分歧",
+        "latest_swing_high": 593.4389,
+        "latest_swing_low": 551.0381,
+        "latest_price": 576.72,
+        "latest_macd_zscore": -1.7102,
+        "swing_highs": [
+          562.7409,
+          561.8768,
+          593.4389
+        ],
+        "swing_lows": [
+          553.9952,
+          574.1809,
+          551.0381
+        ],
+        "support_zone": [
+          551.0381,
+          574.1809
+        ],
+        "resistance_zone": [
+          593.4389,
+          561.8768
+        ],
+        "latest_10_mfi": [
+          49.97,
+          57.12,
+          67.05,
+          40.09,
+          50.3,
+          59.97,
+          68.54,
+          55.73,
+          47.18,
+          30.01
+        ],
+        "latest_10_rsi": [
+          30.92,
+          70.0,
+          52.8,
+          66.38,
+          57.52,
+          69.17,
+          68.28,
+          33.49,
+          57.0,
+          47.89
+        ]
+      }
+    }
+  },
+  "NFLXUSDT": {
+    "symbol": "NFLXUSDT",
+    "timestamp": "2026-06-20T08:33:49.763242",
+    "summary": {
+      "decision": "STRONG_SELL",
+      "score": -3,
+      "message": "❄️ 極強共振：空頭趨勢 + 頂部背離 (市場正在擠壓，等待突破)",
+      "action": "SELL"
+    },
+    "layers": {
+      "L1_Trend_4H": {
+        "direction": "bearish",
+        "price": 77.57,
+        "ema200": 79.0755
+      },
+      "L2_Context_1H": {
+        "environment": "squeezing",
+        "bb_width": 0.053037,
+        "avg_width": 0.04697
+      },
+      "L3_Trigger_30m": {
+        "time_window": "30m",
+        "phase": "多頭趨勢（支撐: [76.02, 76.79])",
+        "trend": "中性",
+        "mfi_macd_divergence": "無明顯背離",
+        "rsi_mfi_divergence": "rsi mfi 同在上",
+        "latest_swing_high": 78.4883,
+        "latest_swing_low": 75.0023,
+        "latest_price": 77.57,
+        "latest_macd_zscore": 0.1523,
+        "swing_highs": [
+          78.4883,
+          76.6551,
+          77.0115
+        ],
+        "swing_lows": [
+          75.1585,
+          75.0023,
+          75.4777
+        ],
+        "support_zone": [
+          75.0023,
+          75.4777
+        ],
+        "resistance_zone": [
+          78.4883,
+          76.6551
+        ],
+        "latest_10_mfi": [
+          63.64,
+          73.65,
+          56.97,
+          43.4,
+          43.25,
+          33.73,
+          40.25,
+          70.17,
+          61.28,
+          31.91
+        ],
+        "latest_10_rsi": [
+          31.46,
+          42.9,
+          52.35,
+          32.35,
+          65.93,
+          46.07,
+          69.03,
+          30.36,
+          67.9,
+          63.75
+        ]
+      }
+    }
+  },
+  "AMDUSDT": {
+    "symbol": "AMDUSDT",
+    "timestamp": "2026-06-20T08:33:49.763242",
+    "summary": {
+      "decision": "HOLD",
+      "score": 0,
+      "message": "⏸️ 持倉觀望：市場震盪中",
+      "action": "HOLD"
+    },
+    "layers": {
+      "L1_Trend_4H": {
+        "direction": "bearish",
+        "price": 538.78,
+        "ema200": 519.7659
+      },
+      "L2_Context_1H": {
+        "environment": "neutral",
+        "bb_width": 0.029598,
+        "avg_width": 0.02983
+      },
+      "L3_Trigger_30m": {
+        "time_window": "30m",
+        "phase": "多頭趨勢（支撐: [528.00, 533.39])",
+        "trend": "看空",
+        "mfi_macd_divergence": "無明顯背離",
+        "rsi_mfi_divergence": "rsi mfi 分歧",
+        "latest_swing_high": 548.9657,
+        "latest_swing_low": 516.5993,
+        "latest_price": 538.78,
+        "latest_macd_zscore": 0.308,
+        "swing_highs": [
+          536.656,
+          530.9783,
+          548.9657
+        ],
+        "swing_lows": [
+          517.6603,
+          518.3691,
+          516.5993
+        ],
+        "support_zone": [
+          516.5993,
+          518.3691
+        ],
+        "resistance_zone": [
+          548.9657,
+          530.9783
+        ],
+        "latest_10_mfi": [
+          59.98,
+          66.37,
+          63.11,
+          50.58,
+          75.44,
+          51.26,
+          56.68,
+          63.64,
+          53.07,
+          56.48
+        ],
+        "latest_10_rsi": [
+          36.26,
+          67.64,
+          35.25,
+          30.93,
+          51.59,
+          45.93,
+          32.36,
+          41.93,
+          65.87,
+          46.79
+        ]
+      }
+    }
+  },
+  "QQQUSDT": {
+    "symbol": "QQQUSDT",
+    "timestamp": "2026-06-20T08:33:49.763242",
+    "summary": {
+      "decision": "SELL",
+      "score": -1,
+      "message": "❄️ 空頭信號：趨勢向下 + 頂部背離 (建議避開或做空)",
+      "action": "SELL"
+    },
+    "layers": {
+      "L1_Trend_4H": {
+        "direction": "bearish",
+        "price": 741.29,
+        "ema200": 768.3678
+      },
+      "L2_Context_1H": {
+        "environment": "squeezing",
+        "bb_width": 0.028087,
+        "avg_width": 0.039928
+      },
+      "L3_Trigger_30m": {
+        "time_window": "30m",
+        "phase": "多頭趨勢（支撐: [726.46, 733.88])",
+        "trend": "看多",
+        "mfi_macd_divergence": "MFI MACD 頂部背離",
+        "rsi_mfi_divergence": "rsi mfi 分歧",
+        "latest_swing_high": 761.4605,
+        "latest_swing_low": 713.1134,
+        "latest_price": 741.29,
+        "latest_macd_zscore": 1.7442,
+        "swing_highs": [
+          746.7232,
+          761.4605,
+          760.8437
+        ],
+        "swing_lows": [
+          713.1134,
+          740.4453,
+          723.9268
+        ],
+        "support_zone": [
+          713.1134,
+          740.4453
+        ],
+        "resistance_zone": [
+          761.4605,
+          746.7232
+        ],
+        "latest_10_mfi": [
+          77.4,
+          77.45,
+          43.92,
+          43.34,
+          74.33,
+          59.31,
+          65.31,
+          58.45,
+          65.01,
+          50.59
+        ],
+        "latest_10_rsi": [
+          35.4,
+          49.29,
+          32.63,
+          59.63,
+          49.85,
+          37.61,
+          45.63,
+          63.48,
+          55.8,
+          61.36
+        ]
+      }
+    }
+  },
+  "SPYUSDT": {
+    "symbol": "SPYUSDT",
+    "timestamp": "2026-06-20T08:33:49.763242",
+    "summary": {
+      "decision": "NEUTRAL",
+      "score": 0,
+      "message": "⚖️ 中性：多空均衡，等待明確信號",
+      "action": "HOLD"
+    },
+    "layers": {
+      "L1_Trend_4H": {
+        "direction": "bullish",
+        "price": 746.33,
+        "ema200": 789.6665
+      },
+      "L2_Context_1H": {
+        "environment": "neutral",
+        "bb_width": 0.018682,
+        "avg_width": 0.027359
+      },
+      "L3_Trigger_30m": {
+        "time_window": "30m",
+        "phase": "空頭趨勢",
+        "trend": "中性",
+        "mfi_macd_divergence": "MFI MACD 頂部背離",
+        "rsi_mfi_divergence": "rsi mfi 同在下",
+        "latest_swing_high": 742.5095,
+        "latest_swing_low": 722.8461,
+        "latest_price": 746.33,
+        "latest_macd_zscore": 0.2447,
+        "swing_highs": [
+          732.5517,
+          742.5095,
+          731.8359
+        ],
+        "swing_lows": [
+          726.9956,
+          743.8756,
+          722.8461
+        ],
+        "support_zone": [
+          722.8461,
+          743.8756
+        ],
+        "resistance_zone": [
+          742.5095,
+          731.8359
+        ],
+        "latest_10_mfi": [
+          62.89,
+          59.83,
+          70.49,
+          75.83,
+          46.61,
+          47.3,
+          44.73,
+          52.0,
+          62.38,
+          37.38
+        ],
+        "latest_10_rsi": [
+          35.17,
+          57.9,
+          62.32,
+          32.72,
+          47.05,
+          34.02,
+          61.08,
+          66.96,
+          55.15,
+          36.53
+        ]
+      }
+    }
+  },
+  "DIAUSDT": {
+    "symbol": "DIAUSDT",
+    "timestamp": "2026-06-20T08:33:49.763242",
+    "summary": {
+      "decision": "HOLD",
+      "score": 0,
+      "message": "⏸️ 持倉觀望：市場震盪中",
+      "action": "HOLD"
+    },
+    "layers": {
+      "L1_Trend_4H": {
+        "direction": "bearish",
+        "price": 0.1174,
+        "ema200": 0.1158
+      },
+      "L2_Context_1H": {
+        "environment": "expanding",
+        "bb_width": 0.035888,
+        "avg_width": 0.032346
+      },
+      "L3_Trigger_30m": {
+        "time_window": "30m",
+        "phase": "空頭趨勢（阻力: [0.12, 0.12])",
+        "trend": "看空",
+        "mfi_macd_divergence": "MFI MACD 底部背離",
+        "rsi_mfi_divergence": "rsi mfi 分歧",
+        "latest_swing_high": 0.1166,
+        "latest_swing_low": 0.1122,
+        "latest_price": 0.1174,
+        "latest_macd_zscore": -1.3689,
+        "swing_highs": [
+          0.1166,
+          0.1157,
+          0.1152
+        ],
+        "swing_lows": [
+          0.1164,
+          0.1159,
+          0.1122
+        ],
+        "support_zone": [
+          0.1122,
+          0.1164
+        ],
+        "resistance_zone": [
+          0.1166,
+          0.1152
+        ],
+        "latest_10_mfi": [
+          46.28,
+          42.83,
+          71.16,
+          67.09,
+          49.31,
+          66.14,
+          53.45,
+          71.03,
+          74.76,
+          48.73
+        ],
+        "latest_10_rsi": [
+          68.96,
+          39.67,
+          63.21,
+          53.63,
+          53.05,
+          48.56,
+          35.29,
+          33.48,
+          64.7,
+          60.84
+        ]
+      }
+    }
+  }
+}

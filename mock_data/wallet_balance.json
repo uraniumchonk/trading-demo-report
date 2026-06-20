@@ -1,0 +1,18 @@
+{
+  "walletBalance": 12580.45,
+  "equity": 13456.78,
+  "unrealizedPNL": 876.33,
+  "marginBalance": 13456.78,
+  "availableBalance": 8920.15,
+  "totalBalance": 12580.45,
+  "assets": [
+    {
+      "asset": "USDT",
+      "free": 8920.15,
+      "locked": 3660.3,
+      "crossWalletBalance": 12580.45,
+      "crossUnPnl": 876.33
+    }
+  ],
+  "timestamp": "2026-06-20T10:00:00"
+}

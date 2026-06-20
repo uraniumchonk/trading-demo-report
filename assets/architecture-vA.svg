@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600">
+<defs>
+<linearGradient id="u" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#4a90d9"/><stop offset="100%" stop-color="#357abd"/></linearGradient>
+<linearGradient id="a" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7c5cff"/><stop offset="100%" stop-color="#5a3de8"/></linearGradient>
+<linearGradient id="m" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#2ecc71"/><stop offset="100%" stop-color="#27ae60"/></linearGradient>
+<linearGradient id="f" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00b894"/><stop offset="100%" stop-color="#009975"/></linearGradient>
+<linearGradient id="s" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#e17055"/><stop offset="100%" stop-color="#d35400"/></linearGradient>
+<linearGradient id="d" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#a29bfe"/><stop offset="100%" stop-color="#6c5ce7"/></linearGradient>
+<linearGradient id="e" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#636e72"/><stop offset="100%" stop-color="#4a5459"/></linearGradient>
+<marker id="ar" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#636e72"/></marker>
+<filter id="sh" x="-2%" y="-2%" width="104%" height="104%"><feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.15"/></filter>
+</defs>
+<rect width="900" height="600" fill="#f8f9fa" rx="12"/>
+<text x="450" y="32" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="bold" fill="#2d3436">系統架構總覽</text>
+
+<!-- User -->
+<g transform="translate(30,250)" filter="url(#sh)"><rect width="110" height="65" rx="10" fill="url(#u)"/><text x="55" y="30" text-anchor="middle" font-size="13" font-weight="bold" fill="white">使用者</text><text x="55" y="48" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.8)">Discord/Web</text></g>
+<line x1="140" y1="282" x2="185" y2="282" stroke="#636e72" stroke-width="2" marker-end="url(#ar)"/>
+
+<!-- AI Agent -->
+<g transform="translate(185,250)" filter="url(#sh)"><rect width="110" height="65" rx="10" fill="url(#a)"/><text x="55" y="30" text-anchor="middle" font-size="13" font-weight="bold" fill="white">AI Agent</text><text x="55" y="48" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.8)">Hermes</text></g>
+<line x1="295" y1="282" x2="340" y2="282" stroke="#636e72" stroke-width="2" marker-end="url(#ar)"/>
+
+<!-- MCP Layer -->
+<g transform="translate(340,190)" filter="url(#sh)"><rect width="130" height="55" rx="8" fill="url(#m)"/><text x="65" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Trading MCP</text><text x="65" y="42" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.8)">下單/查倉位</text></g>
+<g transform="translate(340,265)" filter="url(#sh)"><rect width="130" height="55" rx="8" fill="url(#m)"/><text x="65" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Signal MCP</text><text x="65" y="42" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.8)">訊號分析</text></g>
+
+<!-- Arrows MCP -> FastAPI -->
+<line x1="405" y1="217" x2="500" y2="282" stroke="#636e72" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="405" y1="292" x2="500" y2="282" stroke="#636e72" stroke-width="2" marker-end="url(#ar)"/>
+
+<!-- FastAPI Core -->
+<g transform="translate(500,250)" filter="url(#sh)"><rect width="120" height="65" rx="10" fill="url(#f)"/><text x="60" y="30" text-anchor="middle" font-size="13" font-weight="bold" fill="white">FastAPI Core</text><text x="60" y="48" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.8)">後端服務</text></g>
+<line x1="620" y1="282" x2="670" y2="282" stroke="#636e72" stroke-width="2" marker-end="url(#ar)"/>
+
+<!-- Signal Layer -->
+<g transform="translate(670,250)" filter="url(#sh)"><rect width="120" height="65" rx="10" fill="url(#s)"/><text x="60" y="30" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Signal Layer</text><text x="60" y="48" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.8)">scorer/router</text></g>
+
+<!-- Signal Layer -> Clients -->
+<line x1="730" y1="260" x2="820" y2="150" stroke="#636e72" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="730" y1="304" x2="820" y2="380" stroke="#636e72" stroke-width="2" marker-end="url(#ar)"/>
+
+<!-- Clients -->
+<g transform="translate(820,120)" filter="url(#sh)"><rect width="110" height="55" rx="8" fill="url(#e)"/><text x="55" y="25" text-anchor="middle" font-size="11" font-weight="bold" fill="white">coinglass_</text><text x="55" y="40" text-anchor="middle" font-size="9" fill="white">client.py</text></g>
+<g transform="translate(820,350)" filter="url(#sh)"><rect width="110" height="55" rx="8" fill="url(#e)"/><text x="55" y="25" text-anchor="middle" font-size="11" font-weight="bold" fill="white">binance_</text><text x="55" y="40" text-anchor="middle" font-size="9" fill="white">client.py</text></g>
+
+<!-- External APIs -->
+<line x1="930" y1="147" x2="960" y2="147" stroke="#636e72" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="930" y1="377" x2="960" y2="377" stroke="#636e72" stroke-width="2" marker-end="url(#ar)"/>
+
+<g transform="translate(960,120)"><rect width="100" height="55" rx="8" fill="none" stroke="#636e72" stroke-width="1.5" stroke-dasharray="4,3"/><text x="50" y="25" text-anchor="middle" font-size="11" font-weight="bold" fill="#636e72">CoinGlass</text><text x="50" y="42" text-anchor="middle" font-size="9" fill="#636e72">API</text></g>
+<g transform="translate(960,350)"><rect width="100" height="55" rx="8" fill="none" stroke="#636e72" stroke-width="1.5" stroke-dasharray="4,3"/><text x="50" y="25" text-anchor="middle" font-size="11" font-weight="bold" fill="#636e72">Binance</text><text x="50" y="42" text-anchor="middle" font-size="9" fill="#636e72">API</text></g>
+
+<!-- SQLite DB -->
+<g transform="translate(530,420)" filter="url(#sh)"><rect width="120" height="60" rx="10" fill="url(#d)"/><text x="60" y="28" text-anchor="middle" font-size="12" font-weight="bold" fill="white">SQLite DB</text><text x="60" y="45" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.8)">交易記錄/訊號</text></g>
+<line x1="560" y1="315" x2="560" y2="420" stroke="#636e72" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="730" y1="450" x2="730" y2="282" stroke="#636e72" stroke-width="2" marker-end="url(#ar)"/>
+</svg>
